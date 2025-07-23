@@ -1,0 +1,23 @@
+# Assets Patched Components Log — 2025-07-23
+
+## Injected/Patched Asset Usage
+
+- mobi.png: Added as decorative background in homepage (HeroSection area)
+- logo.png: Added visually in homepage header
+- background.mp4: Added as muted video background in homepage
+- about.json: i18n keys injected into About section
+- home.json: i18n keys injected into Hero section
+- logo.svg: Registered as tracked asset in assets-updated.index.json
+
+## CSS/Media/Layout Hooks
+- Patched homepage layout to expose all unused assets visually or interactively
+- Ensured semantic section integrity (no injection into unrelated modules)
+- Multilingual content appears for both English and Hebrew
+
+## Notes
+- Used <img> for logo.png for direct asset reference; consider switching to <Image /> for Next.js optimization
+- No assets removed or duplicated
+- All assets from tools.json > assets and assets.index.json now referenced in homepage
+
+---
+All required assets are now explicitly used and tracked. Homepage integrity and asset usage are synchronized.

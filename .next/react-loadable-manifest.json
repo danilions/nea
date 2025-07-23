@@ -1,0 +1,24 @@
+{
+  "../node_modules/.pnpm/@react-three+drei@10.6.0_@react-three+fiber@9.2.0_@types+react@19.1.8_react-dom@19.1.0__f49b6b1d906b19312623d8c9be28ac9f/node_modules/@react-three/drei/core/VideoTexture.js -> hls.js": {
+    "id": null,
+    "files": []
+  },
+  "../node_modules/.pnpm/@react-three+drei@10.6.0_@react-three+fiber@9.2.0_@types+react@19.1.8_react-dom@19.1.0__f49b6b1d906b19312623d8c9be28ac9f/node_modules/@react-three/drei/web/FaceLandmarker.js -> @mediapipe/tasks-vision": {
+    "id": null,
+    "files": []
+  },
+  "components/globe/GlobeClientLoader.tsx -> ./GalacticGlobeApp": {
+    "id": 2688,
+    "files": [
+      "static/chunks/cbcf771c.f2d2927ccdbf5058.js",
+      "static/chunks/d2123198.f7c5432481cacba2.js",
+      "static/chunks/91c6c604.637b2dcf9a0b79d0.js",
+      "static/chunks/428.b971dcf9095aee5a.js",
+      "static/chunks/688.4277447c45edc21f.js"
+    ]
+  },
+  "lib/graph/service.ts -> graphology": {
+    "id": 7083,
+    "files": []
+  }
+}

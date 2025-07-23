@@ -1,0 +1,27 @@
+# Asset Usage Validation Log
+
+## Used Assets
+- milka.png (global.css, ClientBackground.tsx)
+- milki.png (global.css)
+- mmilki2.png (global.css)
+- pend-mob.png (global.css)
+- earth_map.jpg (GalacticGlobeApp.tsx)
+- earth_bump.jpg (GalacticGlobeApp.tsx)
+- earth_specular.jpg (GalacticGlobeApp.tsx)
+- earth_clouds.png (GalacticGlobeApp.tsx)
+- earth_night.jpg (GalacticGlobeApp.tsx)
+- common.json (i18nMetadata.ts)
+
+## Unused Assets
+- logo.png
+- logo.bmp
+- background.mp4
+- about.json
+- home.json
+- mobi.png
+
+## Untracked Asset (used but not listed)
+- logo.svg (GalacticGlobeApp.tsx)
+
+---
+All assets have been traced for usage. Unused and untracked assets are listed for review and cleanup.

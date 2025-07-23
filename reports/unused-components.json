@@ -1,0 +1,22 @@
+[
+  "EvidenceVault.test.tsx",
+  "ActorModal.tsx",
+  "NetworkGraph.tsx",
+  "Footer.tsx",
+  "MetricsDisplay.tsx",
+  "InteractiveWorldMap.tsx",
+  "DigitalLion.tsx",
+  "Card.stories.tsx",
+  "CardDescription.tsx",
+  "CardHeader.tsx",
+  "CardTitle.tsx",
+  "Button.stories.tsx",
+  "Button.test.tsx",
+  "Modal.stories.tsx",
+  "SearchBar.stories.tsx",
+  "Toast.stories.tsx",
+  "Tooltip.stories.tsx",
+  "src/components/sections/UnusedSection.tsx",
+  "src/components/ui/UnusedButton.tsx",
+  "src/components/vault/UnusedVaultPanel.tsx"
+]

@@ -1,0 +1,54 @@
+{
+  "api": {
+    "OPENAI_API_KEY": "sk-proj-Avd2N5ngl9ugkFPqCEqfCddxoYOi3pF_1ZXvRn30JNjaRBQLDA672fq6nSbzrHKkX5gz4FB9QFT3BlbkFJ80THldUA6EaNPZiSK1mFw",
+    "GROK_API_KEY": "xai-TBsgEa2FsnXskjqQmTCPtpXC5bixXGlPTLSd7EP6Uwl8gThm7XatVAGBkMzgF7lpTSsTOdjFgYGedqmN",
+    "GROK_BASE_URL": "https://api.x.ai/v1",
+    "GROK_MODEL": "grok-2-1212",
+    "JWT_SECRET": "ymboAJDwW3F+zfFRmMZvVh3UU3md/6NC0RT71r7W/4ubqhwzrHgTpFT3BYJhRU3lNAhwALvGD7JIHu1DTVtHZg=="
+  },
+  "cms": {
+    "SITE_API_TOKEN_ARTICLES": "GwiOcswHodcNtyJBYBLIDVSq2EIWZzOLVmzo/6EYfYI=",
+    "SITE_API_TOKEN_CONTACT": "e3c9PqMb1K7Ln9RyGlhJB0EeeOo7/awVYbUiH9bin0U=",
+    "SITE_API_TOKEN_HELLO": "uVnZEf1W8A72uZBOm3NyZckTqV8UxoJteFRead/M9f8=",
+    "SITE_API_TOKEN_UPDATES": "qGd++XgY1AjOGtwBbU+OQZzM/VAkUxMzyWed3+qr5hs="
+  },
+  "email": {
+    "SENDGRID_API_KEY": "CXS4V59FCGKS851S8J5WY7HB",
+    "SENDGRID_FROM_EMAIL": "daniel@lionsofzion-official.org",
+    "CONTACT_EMAIL": "admin@lionsofzion.org"
+  },
+  "frontend": {
+    "NEXT_PUBLIC_API_BASE_URL": "https://lions-api-functions.azurewebsites.net",
+    "NEXT_PUBLIC_SITE_URL": "https://www.lionsofzion-official.org",
+    "NEXT_PUBLIC_USE_MOCK": "false",
+    "NEXT_PUBLIC_FIREBASE_API_KEY": "AIzaSyBWhrfUODzTPhj9Nh24VTltY4GOwc825XA",
+    "NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN": "lionsofzion-bcc4a.firebaseapp.com",
+    "NEXT_PUBLIC_FIREBASE_PROJECT_ID": "lionsofzion-bcc4a",
+    "NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET": "lionsofzion-bcc4a.appspot.com",
+    "NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID": "266978726573",
+    "NEXT_PUBLIC_FIREBASE_APP_ID": "1:266978726573:web:efdef2358a17c654a42c24",
+    "NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID": "G-B7SW95SFF5"
+  },
+  "assets": {
+    "backgrounds": [
+      "milka.png",
+      "milki.png",
+      "mmilki2.png",
+      "mobi.png",
+      "pend-mob.png"
+    ],
+    "textures": [
+      "earth_map.jpg",
+      "earth_night.jpg",
+      "earth_clouds.png",
+      "earth_bump.jpg",
+      "earth_specular.jpg"
+    ],
+    "logos": ["logo.png", "logo.bmp"],
+    "video": ["background.mp4"],
+    "i18n": {
+      "en": ["about.json", "common.json", "home.json"],
+      "he": []
+    }
+  }
+}

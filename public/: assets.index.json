@@ -1,0 +1,32 @@
+{
+  "backgrounds": [
+    "milka.png",
+    "milki.png",
+    "mmilki2.png",
+    "mobi.png",
+    "pend-mob.png"
+  ],
+  "textures": [
+    "earth_map.jpg",
+    "earth_night.jpg",
+    "earth_clouds.png",
+    "earth_bump.jpg",
+    "earth_specular.jpg"
+  ],
+  "logos": [
+    "logo.png",
+    "logo.bmp"
+  ],
+  "video": [
+    "background.mp4"
+  ],
+  "i18n": {
+    "en": ["about.json", "common.json", "home.json"],
+    "he": ["about.json", "common.json", "home.json"]
+  },
+  "data": [
+    "airports-routes.json",
+    "simplified.geo.json",
+    "world.geo.json"
+  ]
+}

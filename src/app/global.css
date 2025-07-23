@@ -1,0 +1,115 @@
+/* @tailwind directives removed: make sure to process this file with Tailwind CLI or PostCSS if you want to use them */
+/* @tailwind base; */
+/* @tailwind components; */
+/* @tailwind utilities; */
+
+:root {
+  --color-primary: #1a237e;
+  --color-secondary: #ffd600;
+  --color-accent: #ff6f00;
+  --color-background: #000000;
+  --color-surface: #f5f5f5;
+  --color-text: #212121;
+  --color-muted: #757575;
+  --font-family-base: 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-family-heading: 'Montserrat', 'Arial Black', Arial, sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 2rem;
+  --font-weight-regular: 400;
+  --font-weight-bold: 700;
+  --space-xxs: 2px;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 32px;
+  --space-xl: 64px;
+  --border-radius: 8px;
+}
+
+body {
+  font-family: var(--font-family-base);
+  color: #212121;
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(180deg, #10182A 0%, #080d14 100%);
+  transition: background 0.5s;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-md);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: var(--space-xs);
+  --color-primary: #0070f3;
+  --color-secondary: #ff4081;
+  --color-background: #0a0a23;
+  --color-surface: #1a1a2e;
+  --color-text: #ffffff;
+  --font-main: 'Inter', sans-serif;
+  --spacing-base: 1rem;
+}
+
+  h1 {
+    font-size: var(--font-size-lg);
+  }
+}
+
+
+.milky-way-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -10;
+  background: url('/images/stars-bg.jpg') center center / cover no-repeat, #000;
+  opacity: 0.85;
+  pointer-events: none;
+  will-change: background-position;
+  animation: galaxyParallax 60s linear infinite, twinkle 20s linear infinite;
+  transition: background-image 0.5s;
+}
+
+@keyframes galaxyParallax {
+  0% { background-position: center center; }
+  100% { background-position: center 200px; }
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.85; }
+  50% { opacity: 1; }
+}
+
+.background-1 {
+  background-image: url('/images/backgrounds/milka.png');
+}
+.background-2 {
+  background-image: url('/images/backgrounds/milki.png');
+}
+.background-3 {
+  background-image: url('/images/backgrounds/mmilki2.png');
+}
+
+@media (max-width: 768px) {
+  .mobile-banner-1 {
+    background-image: url('/images/backgrounds/pend-mob.png');
+  }
+}

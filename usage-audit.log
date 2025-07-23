@@ -1,0 +1,22 @@
+# usage-audit.log
+
+## i18n.js
+- Checked for usage in all scripts, configs, and CI.
+- Directly imported in `src/app/i18n-provider.tsx` as `import i18n from "../../i18n";`.
+- Used as the main i18n instance for React-i18next provider.
+- Also referenced in build artifacts and traces, confirming runtime usage.
+- **Action:** File is actively used. No move performed.
+- **Note:** Used for initializing translations in the app via I18nProvider.
+
+## tailwind.plugin.js
+- Checked for usage in all configs and source files.
+- Not imported or required in `tailwind.config.js` or any other source/config file.
+- Only present as a standalone file and in unused_deps.json.
+- **Action:** Moved to `/scripts/` for backup (not in use).
+- **Note:** No destructive action taken; file is preserved for manual review.
+
+## Summary
+- Files checked: i18n.js, tailwind.plugin.js
+- i18n.js: In use (see above)
+- tailwind.plugin.js: Not in use, moved to /scripts/
+- No files deleted. Team notified via log.

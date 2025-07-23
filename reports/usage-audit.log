@@ -1,0 +1,51 @@
+
+
+--- USAGE AUDIT SUMMARY ---
+
+Homepage Coverage:
+- All required homepage components are imported and rendered in /src/app/page.tsx.
+- Globe modules (GalacticGlobeApp, EarthModel, FlightPaths, StarsBackground, GlobeNav, AirportMarkers) are instantiated and visible.
+- WatchlistPanel, Header, HeroSection, FeaturesSection, TrustIndicators, ContactSection are present and mapped.
+
+Assets:
+- background.mp4 and mobi.png reinjected and confirmed used in homepage.
+- logo.bmp remains unused and flagged for removal.
+
+Translations:
+- English i18n files (common.json, about.json, home.json) are injected and used.
+- Hebrew i18n files (he/common.json, he/about.json, he/home.json) exist but are not injected/displayed. i18n.js supports async loading, but homepage does not yet display Hebrew.
+
+Components:
+- All actively used components listed in active-routes.map.
+- Unused components listed in unused-components.json.
+
+Audit Files:
+- usage-audit.log (this file): Summary of coverage and unused/missing items.
+- unused-components.json: Unused components.
+- unused-assets.json: Unused assets and translations.
+- active-routes.map: All actively used homepage and globe modules.
+- assets-reinjected.json: List of assets successfully reinjected.
+
+Outstanding Issues:
+- Hebrew translations are present but not injected/displayed.
+- logo.bmp is unused and flagged for removal.
+- Some components remain unused (see unused-components.json).
+
+No duplicate assets or components detected.
+All homepage and globe modules are visible and mapped.
+
+## Unused Assets
+- See unused-assets.json
+
+## Duplicate/Overlapping Imports
+- No duplicates found
+
+## global.css Usage
+- Used for base styles, colors, fonts, backgrounds
+- No redundant styles detected
+
+## Active Routes
+- See active-routes.map
+
+---
+All main components, globe modules, and assets are actively used and visible on the homepage. Some i18n (hebrew) files exist but are not injected. No duplicates or redundant styles found.

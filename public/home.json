@@ -1,0 +1,34 @@
+{
+  "hero": {
+    "title": "Lions of Zion",
+    "subtitle": "A global cognitive influence platform for Israel’s truth.",
+    "cta": "Join the Movement"
+  },
+  "features": {
+    "title": "What We Offer",
+    "points": [
+      "Live World Influence Map",
+      "Smart AI Response Tools",
+      "Disinformation Detection",
+      "Global Feed of Cognitive Events",
+      "Zionist Archive & Narratives"
+    ]
+  },
+  "globe": {
+    "title": "Global Cognitive Battlefield",
+    "description": "Watch live influence zones, disinfo campaigns, and support waves."
+  },
+  "feed": {
+    "title": "Real-Time Alerts",
+    "description": "Live updates from the global digital battlefield — join the response."
+  },
+  "callToAction": {
+    "title": "Become a Digital Lion",
+    "text": "Your voice matters. Engage, respond, and lead the narrative."
+  },
+  "footer": {
+    "about": "Lions of Zion is a global pro-Israel narrative command center.",
+    "contact": "Contact us",
+    "donate": "Support Our Mission"
+  }
+}

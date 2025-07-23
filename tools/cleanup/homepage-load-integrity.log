@@ -1,0 +1,54 @@
+# Homepage Load Integrity Report — 2025-07-23
+
+## Section Status
+
+| Section              | Status   | Details |
+|----------------------|----------|---------|
+| HeroSection          | ✅ Loaded | No errors, content visible |
+| GlobeSection         | ✅ Loaded | Dynamic import initialized, globe textures loaded |
+| FeedSection          | ✅ Loaded | Feed data loaded, no fallback |
+| SmartResponseSection | ✅ Loaded | No empty states, logic connected |
+| Footer               | ✅ Loaded | Layout and links present |
+
+## Asset Status
+
+| Asset            | Type        | Status      | Used In                       |
+|------------------|-------------|-------------|-------------------------------|
+| milka.png        | background  | ✅ used     | global.css, ClientBackground.tsx |
+| milki.png        | background  | ✅ used     | global.css                    |
+| mmilki2.png      | background  | ✅ used     | global.css                    |
+| pend-mob.png     | background  | ✅ used     | global.css                    |
+| mobi.png         | background  | ⚠️ unused   | —                             |
+| earth_map.jpg    | texture     | ✅ used     | GalacticGlobeApp.tsx          |
+| earth_bump.jpg   | texture     | ✅ used     | GalacticGlobeApp.tsx          |
+| earth_specular.jpg| texture    | ✅ used     | GalacticGlobeApp.tsx          |
+| earth_clouds.png | texture     | ✅ used     | GalacticGlobeApp.tsx          |
+| earth_night.jpg  | texture     | ✅ used     | GalacticGlobeApp.tsx          |
+| logo.png         | logo        | ⚠️ unused   | —                             |
+| logo.bmp         | logo        | ⚠️ unused   | —                             |
+| logo.svg         | logo        | 🚩 untracked| GalacticGlobeApp.tsx          |
+| background.mp4   | video       | ⚠️ unused   | —                             |
+| about.json       | i18n        | ⚠️ unused   | —                             |
+| common.json      | i18n        | ✅ used     | i18nMetadata.ts               |
+| home.json        | i18n        | ⚠️ unused   | —                             |
+
+## i18n Keys
+- English: Injected and present in all sections.
+- Hebrew: Injected and present in all sections.
+- No missing keys detected.
+
+## Dynamic Imports
+- GlobeSection: Initialized, textures loaded.
+- FeedSection: Initialized, data loaded.
+
+## Errors/Warnings
+- No console errors detected during load.
+- No fallback or empty states rendered.
+
+## Constraints
+- No cache used.
+- No mocks or skipped sections.
+- All assets reverified.
+
+---
+All homepage modules and assets verified. Unused and untracked assets flagged for cleanup. If further action is required, please specify.

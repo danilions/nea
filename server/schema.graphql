@@ -1,0 +1,24 @@
+# server/schema.graphql
+
+type Actor {
+  id: ID!
+  name: String!
+  type: String
+  description: String
+  image: String
+  narratives: [Narrative]
+}
+
+type Narrative {
+  id: ID!
+  title: String!
+  summary: String
+  actors: [Actor]
+}
+
+type Query {
+  actors(search: String, skip: Int, limit: Int): [Actor]
+  narratives(search: String, skip: Int, limit: Int): [Narrative]
+  actor(id: ID!): Actor
+  narrative(id: ID!): Narrative
+}

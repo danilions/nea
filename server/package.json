@@ -1,0 +1,13 @@
+{
+  "name": "lionsofzion-server",
+  "version": "1.0.0",
+  "main": "api.ts",
+  "type": "module",
+  "scripts": {
+    "start": "npx tsx api.ts"
+  },
+  "dependencies": {
+    "apollo-server": "^3.12.0",
+    "neo4j-driver": "^5.19.0"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "api": "https://api.lionsofzion-official.org",
+  "cms": "https://cms.lionsofzion-official.org",
+  "globe": "https://cdn.lionsofzion.org/world.geo.json",
+  "frontend": "https://lions-frontend-site.azurewebsites.net",
+  "globeTextures": [
+    "/public/images/earth_map.jpg",
+    "/public/images/earth_night.jpg",
+    "/public/images/earth_clouds.png",
+    "/public/images/earth_bump.jpg",
+    "/public/images/earth_specular.jpg"
+  ],
+  "dataSources": [
+    "/public/airports-routes.json",
+    "/public/locales/en/about.json",
+    "/public/locales/en/common.json",
+    "/public/locales/en/home.json",
+    "/public/locales/he/"
+  ],
+  "media": [
+    "/public/background.mp4",
+    "/public/images/backgrounds/milka.png",
+    "/public/images/backgrounds/milki.png",
+    "/public/images/backgrounds/mmilki2.png",
+    "/public/images/backgrounds/mobi.png",
+    "/public/images/backgrounds/pend-mob.png"
+  ]
+}

@@ -1,0 +1,16 @@
+[
+  "/src/app/page.tsx",
+  "/src/components/Header.tsx",
+  "/src/components/WorldNetworkMap.tsx",
+  "/src/components/globe/GalacticGlobeApp.tsx",
+  "/src/components/globe/EarthModel.tsx",
+  "/src/components/globe/FlightPaths.tsx",
+  "/src/components/globe/StarsBackground.tsx",
+  "/src/components/globe/GlobeNav.tsx",
+  "/src/components/globe/AirportMarkers.tsx",
+  "/src/components/watchlist/WatchlistPanel.tsx",
+  "/src/components/sections/HeroSection.tsx",
+  "/src/components/sections/FeaturesSection.tsx",
+  "/src/components/sections/TrustIndicators.tsx",
+  "/src/components/sections/ContactSection.tsx"
+]

@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "builds": [{ "src": "package.json", "use": "@vercel/next" }],
+  "env": {
+    "NEO4J_URI": "",
+    "NEO4J_USER": "",
+    "NEO4J_PASSWORD": "",
+    "SUPABASE_URL": "",
+    "SUPABASE_KEY": "",
+    "CLERK_SECRET_KEY": ""
+  }
+}

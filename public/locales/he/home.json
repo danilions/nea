@@ -1,0 +1,20 @@
+{
+  "hero_title": "Welcome to the site",
+  "timeline": [
+    { "year": 2020, "title": "Start", "description": "The project started." },
+    { "year": 2022, "title": "Upgrade", "description": "A major upgrade was performed." },
+    { "year": 2025, "title": "Today", "description": "The system runs on Next.js." }
+  ],
+  "feed": [
+    { "type": "info", "message": "First live update!" },
+    { "type": "info", "message": "Another example update." }
+  ],
+  "vault": [
+    { "title": "Document 1", "description": "Document description." },
+    { "title": "Document 2", "description": "Another document." }
+  ],
+  "watchlist": [
+    { "name": "Character 1", "type": "Organization" },
+    { "name": "Character 2", "type": "Profile" }
+  ]
+}
