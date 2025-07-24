@@ -1,5 +1,8 @@
 {
   "hero_title": "Welcome to the site",
+  "hero.title": "",
+  "hero.subtitle": "",
+  "hero.slogan": "",
   "timeline": [
     { "year": 2020, "title": "Start", "description": "The project started." },
     { "year": 2022, "title": "Upgrade", "description": "A major upgrade was performed." },
@@ -16,5 +19,13 @@
   "watchlist": [
     { "name": "Character 1", "type": "Organization" },
     { "name": "Character 2", "type": "Profile" }
-  ]
+  ],
+  "features.realTimeMonitoring": "",
+  "features.realTimeMonitoringDesc": "",
+  "features.truthVerification": "",
+  "features.truthVerificationDesc": "",
+  "features.globalNetwork": "",
+  "features.globalNetworkDesc": "",
+  "features.threatDetection": "",
+  "features.threatDetectionDesc": ""
 }

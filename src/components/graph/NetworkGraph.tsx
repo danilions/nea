@@ -1,24 +1,21 @@
 import React, { useEffect, useRef, useState, useCallback } from 'react';
-import SigmaRenderer from 'sigma'; // Static import of SigmaRenderer
+// SigmaRenderer and Graph will be dynamically imported client-side
 import { fetchGraphDataAsync } from '../../lib/graph/service';
 import { motion, AnimatePresence } from 'framer-motion';
-import Graph from 'graphology';
 import { useTranslation } from 'react-i18next';
-
-type GraphologyGraph = InstanceType<typeof Graph>;
 
 export interface NetworkGraphProps {
   title?: string;
   description?: string;
-  initialGraph?: GraphologyGraph;
-  onNodeClick?: (nodeId: string) => void;
+  initialGraph?: any;
+  onNodeClick?: () => void;
 }
 
 export default function NetworkGraph({ title, description, initialGraph, onNodeClick }: NetworkGraphProps) {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [graph, setGraph] = useState<GraphologyGraph | null>(initialGraph || null);
+  const [graph, setGraph] = useState<any>(initialGraph || null);
   const [message, setMessage] = useState<string | null>(null);
-  const messageTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const messageTimeoutRef = useRef<any>(null);
   const { t } = useTranslation();
 
   // Show user message
@@ -30,20 +27,29 @@ export default function NetworkGraph({ title, description, initialGraph, onNodeC
 
   // Fetch graph if not provided
   useEffect(() => {
-    if (!graph) {
-      fetchGraphDataAsync().then(setGraph);
+    let mounted = true;
+    async function fetchGraph() {
+      if (!graph) {
+        const Graphology = (await import('graphology')).default;
+        fetchGraphDataAsync().then((data) => {
+      if (mounted) setGraph(data instanceof Graphology ? data : new Graphology());
+        });
+      }
     }
+    fetchGraph();
     return () => {
+      mounted = false;
       if (messageTimeoutRef.current) clearTimeout(messageTimeoutRef.current);
     };
   }, [graph]);
 
   // Mount Sigma renderer (client-side only)
   useEffect(() => {
-    let renderer: SigmaRenderer | null = null;
-    let isMounted = true;
-    function mountSigma() {
-      if (typeof window === 'undefined' || !containerRef.current || !graph) return;      
+    let renderer: any = null;
+    // ...existing code...
+    async function mountSigma() {
+      if (typeof window === 'undefined' || !containerRef.current || !graph) return;
+      const SigmaRenderer = (await import('sigma')).default;
       containerRef.current.innerHTML = '';
       renderer = new SigmaRenderer(graph, containerRef.current, {
         renderLabels: true,
@@ -51,21 +57,18 @@ export default function NetworkGraph({ title, description, initialGraph, onNodeC
         defaultNodeColor: '#00FFFF',
         defaultEdgeColor: '#00FF00',
       });
-      type ClickNodeEvent = { node: string };
-      renderer.on('clickNode', (event: ClickNodeEvent) => {
-        const { node } = event;
-        showMessage(t('graph.nodeClicked', { node }));
-        if (onNodeClick) onNodeClick(node);
+      // Removed: unused type ClickNodeEvent
+      renderer.on('clickNode', () => {
+        showMessage(t('graph.nodeClicked'));
+        if (onNodeClick) onNodeClick();
       });
-      renderer.on('doubleClickNode', (event: ClickNodeEvent) => {
-        const { node } = event;
-        showMessage(t('graph.nodeDoubleClicked', { node }));
+      renderer.on('doubleClickNode', () => {
+        showMessage(t('graph.nodeDoubleClicked'));
       });
       renderer.refresh();
     }
     mountSigma();
     return () => {
-      isMounted = false;
       if (renderer) renderer.kill();
     };
   }, [containerRef, graph, showMessage, t, onNodeClick]);

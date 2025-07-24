@@ -8,7 +8,7 @@ export type UpdateEvent = {
   timestamp: number;
 };
 
-export type UpdateCallback = (event: UpdateEvent) => void;
+export type UpdateCallback = () => void;
 
 export class WebSocketClient {
   private ws: WebSocket | null = null;
@@ -20,9 +20,9 @@ export class WebSocketClient {
       try {
         const data = JSON.parse(e.data);
         if (data && data.type && data.message) {
-          this.listeners.forEach((cb) => cb(data));
+          this.listeners.forEach((cb) => cb());
         }
-      } catch {}
+      } catch { /* empty */ }
     };
   }
 

@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 export default function ClientErrorBoundary({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const handleError = (event: ErrorEvent) => {

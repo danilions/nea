@@ -1,4 +1,9 @@
-import NetworkGraph from './graph/NetworkGraph';
+
+import dynamic from 'next/dynamic';
+const NetworkGraph = dynamic(() => import('./graph/NetworkGraph'), {
+  ssr: false,
+  loading: () => <div>Loading graph...</div>,
+});
 import type { NetworkGraphProps } from './graph/NetworkGraph';
 
 export default function WorldNetworkMap(props: NetworkGraphProps) {

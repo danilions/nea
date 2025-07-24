@@ -2,17 +2,17 @@ import React, { useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 
 interface AppSearchBarProps {
-  onSearch: (query: string) => void;
+  onSearch: () => void;
   placeholder?: string;
   ariaLabel?: string;
 }
 
 const AppSearchBar = React.memo(({ onSearch, placeholder = "Search...", ariaLabel = "Enter search query" }: AppSearchBarProps) => {
-  const [query, setQuery] = useState<string>('');
+  const [searchValue, setSearchValue] = useState<string>('');
 
   const handleSearch = useCallback(() => {
-    onSearch(query);
-  }, [onSearch, query]);
+    onSearch();
+  }, [onSearch]);
 
   const handleKeyDown = useCallback((event: React.KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
@@ -25,8 +25,8 @@ const AppSearchBar = React.memo(({ onSearch, placeholder = "Search...", ariaLabe
       <input
         type="text"
         placeholder={placeholder}
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
+        value={searchValue}
+        onChange={(e) => setSearchValue(e.target.value)}
         onKeyDown={handleKeyDown}
         className="w-full p-3 pl-10 bg-gray-800 text-white rounded-full border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all duration-200"
         aria-label={ariaLabel}

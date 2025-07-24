@@ -1,0 +1,14 @@
+.next
+node_modules
+build
+*.config.*
+coverage
+public
+scripts
+server
+private
+logs
+reports
+storybook
+.vscode
+__*

@@ -1,0 +1,13 @@
+{
+  "hero.title": "Galactic Security",
+  "hero.subtitle": "Real-time threat monitoring for a safer world.",
+  "hero.slogan": "Truth. Trust. Technology.",
+  "features.realTimeMonitoring": "Real-Time Monitoring",
+  "features.realTimeMonitoringDesc": "Track global threats as they emerge.",
+  "features.truthVerification": "Truth Verification",
+  "features.truthVerificationDesc": "AI-powered fact checking.",
+  "features.globalNetwork": "Global Network",
+  "features.globalNetworkDesc": "Connect with trusted partners worldwide.",
+  "features.threatDetection": "Threat Detection",
+  "features.threatDetectionDesc": "Advanced analytics for early warning."
+}

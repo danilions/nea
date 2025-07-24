@@ -17,7 +17,7 @@ const AppModal = React.memo(({ isOpen, onClose, children, title }: AppModalProps
       prevActiveElement.current = document.activeElement as HTMLElement;
       const focusableElements = modalRef.current?.querySelectorAll(
         'button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])'
-      ) as NodeListOf<HTMLElement> | undefined;
+      ) as any;
       const firstElement = focusableElements ? (focusableElements[0] as HTMLElement) : null;
       if (firstElement) {
         firstElement.focus();

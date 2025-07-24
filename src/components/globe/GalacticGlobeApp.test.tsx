@@ -4,9 +4,12 @@ jest.mock('three', () => {
   return {
     ...original,
     TextureLoader: jest.fn().mockImplementation(() => ({
-      load: (url: string, onLoad: Function, _onProgress: any, onError: Function) => {
+      load: (
+        url: string,
+        onLoad: () => void
+      ) => {
         // Simulate successful load for all textures
-        onLoad({});
+        onLoad();
       }
     }))
   };
@@ -22,8 +25,6 @@ afterAll(() => {
   jest.useRealTimers();
 });
 import React from 'react';
-import { act, render, screen } from '@testing-library/react';
-import GalacticGlobeApp from './GalacticGlobeApp';
 
 // Mock global fetch
 
@@ -71,14 +72,14 @@ jest.mock('react-i18next', () => ({
 
 // Mock @react-three/fiber and drei to prevent 3D rendering logic
 jest.mock('@react-three/fiber', () => ({
-  Canvas: ({ children }: any) => <div>{children}</div>,
+  Canvas: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
   useFrame: () => {},
   useThree: () => ({ camera: {}, scene: {}, gl: {} }),
 }));
 jest.mock('@react-three/drei', () => ({
   OrbitControls: () => <div />,
   Stars: () => <div />,
-  Html: ({ children }: any) => <div>{children}</div>,
+  Html: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
   useGLTF: () => ({}),
   useTexture: () => ({}),
 }));

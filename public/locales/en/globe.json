@@ -1,0 +1,6 @@
+{
+  "globe.dataLoadError": "Failed to load data.",
+  "globe.loadingData": "Loading data...",
+  "globe.loadingTextures": "Loading globe textures...",
+  "globe.dataError": "An error occurred: {{error}}"
+}

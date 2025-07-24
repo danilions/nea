@@ -1,0 +1,8 @@
+{
+  "globe.loadingData": "Loading airport and route data...",
+  "globe.loadingTextures": "Loading globe textures...",
+  "globe.dataError": "Error loading data.",
+  "airport.markerLabel": "Airport marker",
+  "common.logoAlt": "Lions of Zion Logo",
+  "common.retry": "Retry"
+}

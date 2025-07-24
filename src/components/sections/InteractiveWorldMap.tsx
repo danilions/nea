@@ -20,7 +20,7 @@ interface CountryFeature {
 
 interface InteractiveWorldMapProps {
   selectedCountryId?: string;
-  onCountryClick?: (country: CountryFeature) => void;
+  onCountryClick?: (() => void);
   className?: string;
 }
 
@@ -41,16 +41,16 @@ const InteractiveWorldMap: React.FC<InteractiveWorldMapProps> = ({
   }), []);
 
   // Handle country interactions
-  const handleCountryEnter = useCallback((geo: CountryFeature) => {
-    setHoveredCountry(geo.properties.ISO_A3);
+  const handleCountryEnter = useCallback(() => {
+    // ...existing code...
   }, []);
 
   const handleCountryLeave = useCallback(() => {
     setHoveredCountry(null);
   }, []);
 
-  const handleCountryClick = useCallback((geo: CountryFeature) => {
-    onCountryClick?.(geo);
+  const handleCountryClick = useCallback(() => {
+    onCountryClick?.();
   }, [onCountryClick]);
 
   // Memoize country styling
@@ -104,14 +104,13 @@ const InteractiveWorldMap: React.FC<InteractiveWorldMapProps> = ({
               geographies.map((geo: CountryFeature) => {
                 const style = getCountryStyle(geo);
                 const isHovered = hoveredCountry === geo.properties.ISO_A3;
-                
                 return (
                   <Geography
                     key={geo.rsmKey}
                     geography={geo}
-                    onMouseEnter={() => handleCountryEnter(geo)}
+                    onMouseEnter={handleCountryEnter}
                     onMouseLeave={handleCountryLeave}
-                    onClick={() => handleCountryClick(geo)}
+                    onClick={handleCountryClick}
                     style={style}
                     className={`
                       transition-all duration-300 ease-in-out

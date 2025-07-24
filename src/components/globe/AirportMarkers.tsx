@@ -19,6 +19,7 @@ interface Airport {
 interface AirportMarkerProps {
   airport: Airport;
   radius: number;
+  // eslint-disable-next-line no-unused-vars
   onSelect: (airport: Airport) => void;
 }
 
@@ -107,11 +108,12 @@ AirportMarker.displayName = 'AirportMarker';
 interface AirportMarkersProps {
   airports: Airport[];
   radius: number;
-  onSelect: (airport: Airport) => void;
+  // eslint-disable-next-line no-unused-vars
+  onSelectAirport: (airport: Airport) => void;
 }
 
 
-const AirportMarkers = React.memo(({ airports = [], radius, onSelect }: AirportMarkersProps) => {
+const AirportMarkers = React.memo(({ airports = [], radius, onSelectAirport }: AirportMarkersProps) => {
   if (!airports || airports.length === 0) {
     return (
       <group>
@@ -126,13 +128,13 @@ const AirportMarkers = React.memo(({ airports = [], radius, onSelect }: AirportM
   }
   return (
     <>
-      {airports.map(airport => (
-        <AirportMarker key={airport.iata}
-          airport={airport}
-          radius={radius}
-          onSelect={onSelect}
-        />
-      ))}
+        {airports.map((airport) => (
+            <AirportMarker key={airport.iata}
+              airport={airport}
+              radius={radius}
+              onSelect={onSelectAirport}
+            />
+          ))}
     </>
   );
 });

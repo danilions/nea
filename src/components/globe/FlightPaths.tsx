@@ -42,11 +42,11 @@ const FlightPath = React.memo(({ start, end, index }: { start: THREE.Vector3, en
   return (
     <group>
       <line>
-        <bufferGeometry attach="geometry" {...new THREE.BufferGeometry().setFromPoints(curve.getPoints(50))} />
-        <lineBasicMaterial color="#00FF00" linewidth={1} transparent opacity={0.2} />
+        <bufferGeometry {...new THREE.BufferGeometry().setFromPoints(curve.getPoints(50))} />
+        <lineBasicMaterial color="#00FF00" />
       </line>
       <mesh ref={lightRef}>
-        <sphereGeometry args={[0.015, 8, 8]} />
+        <sphereGeometry />
         <meshBasicMaterial color="#FFFFFF" />
       </mesh>
     </group>

@@ -1,6 +1,7 @@
 
 import './global.css';
 import { Footer } from '@/components/sections/Footer';
+import React from 'react';
 import I18nProvider from './i18n-provider';
 
 export default function RootLayout({

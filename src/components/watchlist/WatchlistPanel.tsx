@@ -11,7 +11,7 @@ export interface WatchlistItem {
 
 interface WatchlistPanelProps {
   items: WatchlistItem[];
-  onRemove: (id: string) => void;
+  onRemove: () => void;
 }
 
 export const WatchlistPanel: React.FC<WatchlistPanelProps> = ({ items, onRemove }) => {
@@ -29,7 +29,7 @@ export const WatchlistPanel: React.FC<WatchlistPanelProps> = ({ items, onRemove 
               <div className="text-xs text-muted">{item.type}</div>
             </div>
             <button
-              onClick={() => onRemove(item.id)}
+              onClick={() => onRemove()}
               className="text-red-500 hover:text-red-700 text-sm font-bold px-2"
               aria-label={`Remove ${item.name}`}
             >

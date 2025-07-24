@@ -1,43 +1,72 @@
-import React, { useRef, useMemo } from 'react';
+import React, { useMemo, useRef, Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import * as THREE from 'three';
+import { useFrame } from '@react-three/fiber';
 
-interface StarsBackgroundProps {
-  numStars?: number;
-  radius?: number;
-  starSize?: number;
-  opacity?: number;
-}
-
-const StarsBackground = React.memo(({ numStars = 10000, radius = 150, starSize = 0.15, opacity = 0.9 }: StarsBackgroundProps) => {
-  const positions = useRef<Float32Array | null>(null);
-
-  if (!positions.current) {
-    const p = new Float32Array(numStars * 3);
+function StarsPrimitive({
+  numStars = 5000,
+  radius = 150,
+  starSize = 0.15,
+  opacity = 0.9,
+  color = '#FFFFFF',
+}) {
+  const pointsRef = useRef<THREE.Points>(null);
+  const positions = useMemo(() => {
+    const arr = new Float32Array(numStars * 3);
     for (let i = 0; i < numStars; i++) {
       const phi = Math.random() * Math.PI * 2;
       const theta = Math.random() * Math.PI;
       const x = radius * Math.sin(theta) * Math.cos(phi);
       const y = radius * Math.sin(theta) * Math.sin(phi);
       const z = radius * Math.cos(theta);
-      p[i * 3] = x;
-      p[i * 3 + 1] = y;
-      p[i * 3 + 2] = z;
+      arr[i * 3] = x;
+      arr[i * 3 + 1] = y;
+      arr[i * 3 + 2] = z;
     }
-    positions.current = p;
-  }
+    return arr;
+  }, [numStars, radius]);
 
   const geometry = useMemo(() => {
-    const geom = new THREE.BufferGeometry();
-    geom.setAttribute('position', new THREE.BufferAttribute(positions.current!, 3));
-    return geom;
-  }, []);
+    const geo = new THREE.BufferGeometry();
+    geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    return geo;
+  }, [positions]);
 
-  return (
-    <points geometry={geometry}>
-      <pointsMaterial color="#FFFFFF" size={starSize} sizeAttenuation={true} transparent opacity={opacity} />
-    </points>
-  );
-});
-StarsBackground.displayName = 'StarsBackground';
+  const material = useMemo(() => {
+    return new THREE.PointsMaterial({ color, size: starSize, opacity });
+  }, [color, starSize, opacity]);
+
+  const points = useMemo(() => {
+    return new THREE.Points(geometry, material);
+  }, [geometry, material]);
+
+  useFrame(() => {
+    if (points) {
+      points.rotation.y += 0.0005;
+    }
+  });
+
+  return <primitive ref={pointsRef} {...{ object: points }} />;
+}
+
+interface StarsBackgroundProps {
+  numStars?: number;
+  radius?: number;
+  starSize?: number;
+  opacity?: number;
+  color?: string;
+}
+
+const StarsBackground = dynamic<StarsBackgroundProps>(
+  () =>
+    Promise.resolve(function StarsBackgroundDynamic(props: StarsBackgroundProps) {
+      return (
+        <Suspense fallback={null}>
+          <StarsPrimitive {...props} />
+        </Suspense>
+      );
+    }),
+  { ssr: false }
+);
 
 export default StarsBackground;
