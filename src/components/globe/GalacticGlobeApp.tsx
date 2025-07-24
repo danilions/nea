@@ -1,10 +1,13 @@
-import React, { useCallback, Suspense } from 'react';
+"use client";
+import React, { useCallback, Suspense, useEffect, useState } from 'react';
+// ...existing code...
 import { Canvas } from '@react-three/fiber';
 import * as THREE from 'three';
 import { EarthModel } from './EarthModel';
 import AirportMarkers from './AirportMarkers';
 import FlightPaths from './FlightPaths';
 import StarsBackground from './StarsBackground';
+import { Html } from '@react-three/drei';
 
 // --- Types ---
 interface Airport {
@@ -34,39 +37,11 @@ interface FlightRoute {
   index: number;
 }
 
-// --- Mock Data ---
-const MOCK_AIRPORTS: Airport[] = [
-  {
-    iata: 'TLV',
-    city: 'Tel Aviv',
-    country: 'Israel',
-    lat: 32.0114,
-    lng: 34.8867,
-    timezone: 'Asia/Jerusalem',
-    description: 'Ben Gurion Airport',
-  },
-  {
-    iata: 'JFK',
-    city: 'New York',
-    country: 'USA',
-    lat: 40.6413,
-    lng: -73.7781,
-    timezone: 'America/New_York',
-    description: 'John F. Kennedy International Airport',
-  },
-];
-
-const MOCK_ROUTES: Route[] = [
-  {
-    source: 'TLV',
-    target: 'JFK',
-    airline: 'El Al',
-    flight_number: 'LY001',
-    duration: '11h',
-    distance_km: 9100,
-    status: 'active',
-  },
-];
+// --- Dynamic Data State ---
+interface AirportsRoutesData {
+  airports: Airport[];
+  routes: Route[];
+}
 
 function computeFlightRoutes(airports: Airport[], routes: Route[], earthRadius: number): FlightRoute[] {
   return routes.map((route, idx) => {
@@ -97,10 +72,40 @@ function computeFlightRoutes(airports: Airport[], routes: Route[], earthRadius: 
 }
 
 const GalacticGlobeApp: React.FC = () => {
-  // ...existing code...
   const earthRadius = 2;
-  const airports = MOCK_AIRPORTS;
-  const routes = MOCK_ROUTES;
+  const [airports, setAirports] = useState<Airport[]>([]);
+  const [routes, setRoutes] = useState<Route[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(false);
+
+  useEffect(() => {
+    let isMounted = true;
+    setLoading(true);
+    fetch('/airports-routes.json')
+      .then(res => {
+        if (!res.ok) throw new Error('Failed to fetch airports-routes.json');
+        return res.json();
+      })
+      .then((data: AirportsRoutesData) => {
+        if (isMounted) {
+          setAirports(Array.isArray(data.airports) ? data.airports : []);
+          setRoutes(Array.isArray(data.routes) ? data.routes : []);
+          setError(false);
+        }
+      })
+      .catch(() => {
+        if (isMounted) {
+          setAirports([]);
+          setRoutes([]);
+          setError(true);
+        }
+      })
+      .finally(() => {
+        if (isMounted) setLoading(false);
+      });
+    return () => { isMounted = false; };
+  }, []);
+
   const flightRoutes = computeFlightRoutes(airports, routes, earthRadius);
 
   const handleSelectAirport = useCallback(() => {
@@ -108,12 +113,22 @@ const GalacticGlobeApp: React.FC = () => {
   }, []);
 
   return (
-    <Canvas style={{ height: 600, width: '100%' }}>
+    <Canvas style={{ height: '100vh', width: '100vw' }}>
       <Suspense fallback={null}>
         <EarthModel />
         <AirportMarkers airports={airports} radius={earthRadius} onSelectAirport={handleSelectAirport} />
         <FlightPaths flightRoutes={flightRoutes} />
         <StarsBackground numStars={100} />
+        {loading && (
+          <Html center position={[0, earthRadius + 0.5, 0]}>
+            <div className="bg-blue-900 text-white px-3 py-2 rounded shadow-lg text-sm">Loading airports & routes…</div>
+          </Html>
+        )}
+        {!loading && error && (
+          <Html center position={[0, earthRadius + 0.5, 0]}>
+            <div className="bg-red-800 text-white px-3 py-2 rounded shadow-lg text-sm">Failed to load airports/routes data.</div>
+          </Html>
+        )}
       </Suspense>
     </Canvas>
   );

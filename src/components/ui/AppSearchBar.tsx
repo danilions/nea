@@ -32,7 +32,7 @@ const AppSearchBar = React.memo(({ onSearch, placeholder = "Search...", ariaLabe
         aria-label={ariaLabel}
       />
       <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-blue-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
           <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
         </svg>
       </div>
@@ -43,7 +43,7 @@ const AppSearchBar = React.memo(({ onSearch, placeholder = "Search...", ariaLabe
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
       >
-        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+        <svg xmlns="http://www.w3.org/2000/svg" className="w-8 h-8 text-blue-200" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </motion.button>

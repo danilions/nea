@@ -1,0 +1,44 @@
+task: accessibility_pass
+description: >
+  Perform a full accessibility audit of the homepage per WCAG standards.
+  Fix issues related to semantic structure, focus indicators, ARIA attributes, color contrast, and screen reader compatibility.
+
+steps:
+  - name: Audit semantic structure
+    check: |
+      - Use of <header>, <main>, <section>, <footer>, <nav>
+      - All headings follow hierarchy (h1 → h2 → h3)
+      - Avoid div-only structure
+
+  - name: Review ARIA attributes
+    check: |
+      - Add role="img" and aria-label to meaningful icons
+      - aria-hidden="true" for purely decorative icons
+      - Use aria-expanded and aria-controls for toggles (if any)
+
+  - name: Ensure keyboard navigation
+    test: |
+      - Tab through all links, buttons, and switchers
+      - Focus outline is visible on every element
+      - All elements usable via keyboard (Enter/Space)
+
+  - name: Fix contrast and alt text
+    verify: |
+      - Color contrast ratio meets WCAG AA (4.5:1 for text)
+      - All images and <svg> have alt="" or meaningful descriptions
+      - Tailwind text/hover styles readable on cosmic background
+
+  - name: Reduced motion support
+    optional: true
+    fix: |
+      - Add `@media (prefers-reduced-motion: reduce)` handling
+      - Disable globe/star animations when motion preference is active
+
+  - name: Run Lighthouse accessibility test
+    run: |
+      pnpm run dev
+      # Use Chrome Lighthouse → Accessibility tab
+    return: |
+      Accessibility score
+      Screenshot of successful keyboard nav
+      List of issues fixed or remaining

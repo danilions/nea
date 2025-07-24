@@ -7,6 +7,12 @@
     "mainTitle": "נתיבי גלקסיה",
     "loadingData": "טוען נתונים...",
     "loadingTextures": "טוען טקסטורות...",
+    "dataLoadError": "שגיאה בטעינת נתונים: {{message}}",
+    "searchPlaceholder": "חפש שדה תעופה (IATA, עיר, מדינה)...",
+    "searchAriaLabel": "הזן שאילתת חיפוש",
+    "airportDetailsTitle": "פרטי שדה תעופה: {{iata}}",
+    "dataError": "אירעה שגיאה: {{error}}"
+  },
   "hero.title": "אבטחה גלקטית",
   "hero.subtitle": "ניטור איומים בזמן אמת לעולם בטוח יותר.",
   "hero.slogan": "אמת. אמון. טכנולוגיה.",
@@ -17,13 +23,7 @@
   "features.globalNetwork": "רשת גלובלית",
   "features.globalNetworkDesc": "חיבור עם שותפים אמינים ברחבי העולם.",
   "features.threatDetection": "זיהוי איומים",
-  "features.threatDetectionDesc": "אנליטיקה מתקדמת להתרעה מוקדמת."
-    "dataLoadError": "שגיאה בטעינת נתונים: {{message}}",
-    "searchPlaceholder": "חפש שדה תעופה (IATA, עיר, מדינה)...",
-    "searchAriaLabel": "הזן שאילתת חיפוש",
-    "airportDetailsTitle": "פרטי שדה תעופה: {{iata}}",
-    "dataError": "אירעה שגיאה: {{error}}"
-  },
+  "features.threatDetectionDesc": "אנליטיקה מתקדמת להתרעה מוקדמת.",
   "airport": {
     "city": "עיר",
     "country": "מדינה",

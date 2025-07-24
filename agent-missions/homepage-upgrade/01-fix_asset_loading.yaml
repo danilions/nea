@@ -1,0 +1,37 @@
+task: fix_asset_loading
+description: >
+  Diagnose and fix missing or broken loading of static CSS and JS assets under the _next/static directory,
+  which results in a white background and unstyled homepage. Ensure successful Next.js build and proper
+  Azure Static Web Apps deployment configuration. Prevent 404 errors for _next/* assets.
+
+steps:
+  - name: Verify local Next.js build
+    run: |
+      pnpm run build
+      ls -la .next/static
+      du -sh .next/static/*
+
+  - name: Inspect Azure SWA config
+    files:
+      - staticwebapp.config.json
+      - .github/workflows/main.yml
+    check: |
+      - output_location should match `.next` or `out` depending on the build method
+      - ensure routes are not overriding `_next/*` paths
+      - check if static files are blocked or redirected
+
+  - name: Deploy and test asset serving
+    run: |
+      pnpm run export || pnpm run build
+      # deploy via Azure CLI or GitHub Action
+      # then open browser devtools and test network requests to `_next/static/css/*.css` and `.js`
+    verify: |
+      - Starfield and globe assets load
+      - Tailwind styles apply
+      - Console has no 404 for static files
+
+  - name: Confirm success
+    return: |
+      Screenshot of styled homepage
+      Console log confirming static files load correctly
+      No 404 errors in devtoolsכן

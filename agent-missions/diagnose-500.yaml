@@ -1,0 +1,33 @@
+task: diagnose_nextjs_500_error
+description: >
+  Diagnose and output the root cause of any 500 Internal Server Error on http://localhost:3000. 
+  Automate all steps—do not require manual confirmation.
+
+steps:
+  - name: Start Next.js dev server
+    run: pnpm run dev
+
+  - name: Wait for server to fully start
+    run: sleep 5
+
+  - name: Fetch homepage to check status code and output
+    run: curl -i http://localhost:3000 > ./agent-homepage-response.log
+
+  - name: Parse and display HTTP status code
+    run: grep HTTP ./agent-homepage-response.log
+
+  - name: Capture latest server logs for errors
+    run: tail -n 50 ./logs/server.log || tail -n 50 .next/trace || echo "No log file found"
+
+  - name: Output common causes for 500 error
+    run: |
+      echo Check for:
+      echo "- missing imports"
+      echo "- SSR errors"
+      echo "- invalid export default"
+      echo "- fetch failures"
+      echo "- dynamic imports"
+      echo "Examine logs above."
+
+  - name: Final confirmation
+    run: echo "If the server log shows a specific error, send this output to the developer for targeted fix."

@@ -17,6 +17,9 @@ importers:
       '@react-three/drei':
         specifier: ^10.6.0
         version: 10.6.0(@react-three/fiber@9.2.0(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.178.0))(@types/react@19.1.8)(@types/three@0.178.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.178.0)
+      '@react-three/fiber':
+        specifier: ^9.2.0
+        version: 9.2.0(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.178.0)
       '@types/react-dom':
         specifier: ^19.1.6
         version: 19.1.6(@types/react@19.1.8)
@@ -68,6 +71,12 @@ importers:
       react-simple-maps:
         specifier: ^3.0.0
         version: 3.0.0(prop-types@15.8.1)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
+      three:
+        specifier: ^0.178.0
+        version: 0.178.0
+      yaml:
+        specifier: ^2.8.0
+        version: 2.8.0
     devDependencies:
       '@babel/core':
         specifier: ^7.28.0
@@ -84,9 +93,6 @@ importers:
       '@next/eslint-plugin-next':
         specifier: ^15.4.3
         version: 15.4.3
-      '@react-three/fiber':
-        specifier: ^9.2.0
-        version: 9.2.0(@types/react@19.1.8)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)(three@0.178.0)
       '@storybook/addon-essentials':
         specifier: ^8.6.14
         version: 8.6.14(@types/react@19.1.8)
@@ -144,6 +150,9 @@ importers:
       babel-jest:
         specifier: ^30.0.5
         version: 30.0.5(@babel/core@7.28.0)
+      cross-env:
+        specifier: ^7.0.3
+        version: 7.0.3
       depcheck:
         specifier: ^1.4.7
         version: 1.4.7
@@ -186,9 +195,6 @@ importers:
       tailwindcss:
         specifier: ^4.1.11
         version: 4.1.11
-      three:
-        specifier: ^0.178.0
-        version: 0.178.0
       ts-jest:
         specifier: ^29.4.0
         version: 29.4.0(@babel/core@7.28.0)(@jest/transform@30.0.5)(@jest/types@30.0.5)(babel-jest@30.0.5(@babel/core@7.28.0))(jest-util@30.0.5)(jest@30.0.5(@types/node@24.1.0)(ts-node@10.9.2(@swc/core@1.13.2(@swc/helpers@0.5.17))(@types/node@24.1.0)(typescript@5.8.3)))(typescript@5.8.3)
@@ -5091,6 +5097,11 @@ packages:
   yaml@1.10.2:
     resolution: {integrity: sha512-r3vXyErRCYJ7wg28yvBY5VSoAF8ZvlcW9/BwUzEtUsjvX/DKs24dIkuwjtuprwJJHsbyUbLApepYTR1BN4uHrg==}
     engines: {node: '>= 6'}
+
+  yaml@2.8.0:
+    resolution: {integrity: sha512-4lLa/EcQCB0cJkyts+FpIRx5G/llPxfP6VQU5KByHEhLxY3IJCH0f0Hy1MHI8sClTvsIb8qwRJ6R/ZdlDJ/leQ==}
+    engines: {node: '>= 14.6'}
+    hasBin: true
 
   yargs-parser@20.2.9:
     resolution: {integrity: sha512-y11nGElTIV+CT3Zv9t7VKl+Q3hTQoT9a1Qzezhhl6Rp21gJ/IVTW7Z3y9EWXhuUBC2Shnf+DX0antecpAwSP8w==}
@@ -10701,6 +10712,8 @@ snapshots:
   yallist@5.0.0: {}
 
   yaml@1.10.2: {}
+
+  yaml@2.8.0: {}
 
   yargs-parser@20.2.9: {}
 

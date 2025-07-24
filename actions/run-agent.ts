@@ -1,55 +1,44 @@
-// scripts/run-agent.ts
+import fs from 'fs';
+import yaml from 'yaml';
+import { execSync } from 'child_process';
+import path from 'path';
+import { fileURLToPath } from 'url';
 
-/**
- * @fileoverview סקריפט ראשי להפעלת סוכני הפיתוח השונים.
- * הוא מייבא את הגדרות הסוכנים ומריץ את המשימות שלהם באופן קונספטואלי.
- *
- * @typedef {import('../actions/task').Agent} Agent
- * @typedef {import('../actions/task').Task} Task
- */
-
-// ייבוא טיפוסים וסוכנים מקובץ fullMissionPlan.ts
-import { allAgents, type Agent, type Task } from '../actions/fullMissionPlan';
-
-// הפונקציה המבצעת סוכן באופן קונספטואלי
-async function executeAgent(agent: Agent) {
-  console.log(`\n--- Starting Agent: ${agent.name} ---`);
-  for (const task of agent.tasks) {
-    console.log(`\nExecuting Task: ${task.name} (${task.id})`);
-    console.log(`Description: ${task.description}`);
-    console.log(`Affected Files: ${task.affectedFiles.join(', ')}`);
-
-    if (task.dependencies && task.dependencies.length > 0) {
-      console.log(`Dependencies: ${task.dependencies.join(', ')} (Ensure these are met before executing)`);
-      // במערכת סוכנים אמיתית, כאן תהיה לוגיקה לבדיקת תלויות והמתנה/הפעלה שלהן.
+function runStep(step: any): boolean {
+  console.log(`\n>>> ${step.name || 'Step'} <<<`);
+  try {
+    execSync(step.run, { stdio: 'inherit', shell: '/bin/zsh' });
+    console.log('✅ Success');
+    return true;
+  } catch (e: unknown) {
+    if (e instanceof Error) {
+      console.error('❌ Failed:', e.message);
+    } else {
+      console.error('❌ Failed:', JSON.stringify(e));
     }
-
-    console.log('Instructions:');
-    task.instructions.forEach((instruction, index) => {
-      console.log(`${index + 1}. ${instruction}`);
-    });
-
-    console.log(`Expected Output: ${task.output || 'N/A'}`);
-    console.log(`--- Task ${task.id} Complete (Conceptual) ---`);
-    // כאן במערכת סוכנים אמיתית, היו מתבצעים שינויי הקוד בפועל או הפעלת כלים.
-    // מכיוון שזהו שלד קונספטואלי, אנו רק מדפיסים את ההוראות.
+    return false;
   }
-  console.log(`--- Agent ${agent.name} Finished ---`);
 }
 
-// הפונקציה הראשית שמריצה את כל הסוכנים
-async function runAllAgents() {
-  console.log('Starting the full project implementation plan...');
-
-  // הרצת הסוכנים בסדר לוגי בהתבסס על התלות שלהם
-  // הסוכנים מוגדרים בסדר הנכון בתוך allAgents ב-fullMissionPlan.ts
-  for (const agent of allAgents) {
-    await executeAgent(agent);
+function runMission(yamlPath: string): void {
+  const doc = yaml.parse(fs.readFileSync(yamlPath, 'utf8'));
+  console.log(`\n=== ${doc.task} ===\n${doc.description}\n`);
+  for (const step of doc.steps) {
+    if (!runStep(step)) break;
   }
-
-  console.log('\n--- Full Project Implementation Plan Generated ---');
-  console.log('Please follow the detailed instructions for each task in the respective files and outputs.');
-  console.log('This output serves as a detailed roadmap for manual development or a base for an advanced automated agent system.');
 }
 
-runAllAgents();
+function main() {
+  const file = process.argv[2];
+  if (!file) {
+    // fallback to all missions in the directory (optional)
+    const __filename = fileURLToPath(import.meta.url);
+    const __dirname = path.dirname(__filename);
+    const missionsDir = path.resolve(__dirname, '../agent-missions/homepage-upgrade');
+    const files = fs.readdirSync(missionsDir).filter(f => f.endsWith('.yaml'));
+    for (const f of files) runMission(path.join(missionsDir, f));
+  } else {
+    runMission(file);
+  }
+}
+main();

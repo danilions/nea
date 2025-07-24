@@ -1,0 +1,43 @@
+task: fix_tailwind_layout
+description: >
+  Apply proper TailwindCSS layout, spacing, and visual structure to the homepage.
+  Resolve the "raw HTML flow" issue by re-enabling container widths, padding, grid/flex layouts, and typography hierarchy per the intended cosmic design.
+
+steps:
+  - name: Review global styles
+    files:
+      - src/app/globals.css
+      - tailwind.config.js
+    verify: |
+      - Tailwind directives present (@tailwind base/components/utilities)
+      - Global dark background class applied (e.g., bg-black)
+      - Tailwind config enables necessary font sizes and spacing
+
+  - name: Fix page structure
+    files:
+      - src/app/page.tsx
+      - src/app/components/ClientHome.tsx
+    check: |
+      - Outer div uses max-w-screen-xl or container class with mx-auto
+      - Layout uses grid or flex with gap-*, py-*, and spacing utilities
+      - Section tags wrap hero, features, etc.
+
+  - name: Apply typography hierarchy
+    check: |
+      - hero.title uses text-4xl or larger
+      - hero.subtitle uses text-xl or text-2xl
+      - Feature titles are bold (font-semibold) and readable
+
+  - name: Test visually
+    run: |
+      pnpm run dev
+    verify: |
+      - Layout flows vertically, spaced correctly
+      - Headings are centered and proportional
+      - White/cosmic contrast visually clear
+
+  - name: Confirm success
+    return: |
+      Full-page screenshot of visual layout
+      Tailwind classes validated per section
+      No visible signs of unstyled content

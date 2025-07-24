@@ -1,0 +1,46 @@
+task: fix_i18n_resolution
+description: >
+  Fix the internationalization system so that translation keys like `hero.title` and `features.globalNetwork.title`
+  render correctly in English, Hebrew, and Arabic. Ensure correct configuration of react-i18next and proper file loading
+  in both server-side rendering (SSR) and client-side hydration.
+
+steps:
+  - name: Check i18n config
+    files:
+      - i18n.js
+      - next-i18next.config.js
+      - next.config.js
+    verify: |
+      - locales: ['en', 'he', 'ar']
+      - defaultLocale: 'en'
+      - localePath points to './public/locales'
+      - ns: ['common', 'homepage']
+
+  - name: Validate translation files
+    check: |
+      - public/locales/en/homepage.json exists and contains "hero.title"
+      - public/locales/he/homepage.json exists and has Hebrew translation
+      - public/locales/ar/homepage.json exists and has Arabic translation
+    run: |
+      tree public/locales/
+      cat public/locales/en/homepage.json | grep hero.title
+
+  - name: Test useTranslation hook in components
+    files:
+      - src/app/page.tsx
+      - src/app/components/HeroSection.tsx
+    verify: |
+      - useTranslation('homepage') is used
+      - t('hero.title') returns correct value, not raw key
+
+  - name: Fix server/client hydration if needed
+    fix: |
+      - Ensure I18nextProvider wraps app root
+      - Debug logs show language detection working
+      - If raw keys still appear, add `ssr: false` temporarily to debug
+
+  - name: Confirm success
+    return: |
+      Screenshots for EN, HE, and AR
+      No raw keys shown in any language
+      Language switcher works and updates text

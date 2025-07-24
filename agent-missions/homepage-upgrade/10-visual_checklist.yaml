@@ -1,0 +1,64 @@
+task: visual_checklist
+description: >
+  Execute a full visual and functional QA checklist based on Section 9.3 of the Lions of Zion Homepage Upgrade Plan.
+  Confirm all visual elements, interactions, responsiveness, and technical criteria are met before final production sign-off.
+
+steps:
+  - name: Technical checklist
+    run: |
+      echo "בדיקה:
+      - _next/static assets load (no 404s)
+      - No hydration mismatch errors
+      - SEO metadata (title, description) set
+      - Canonical + hreflang tags present
+      "
+      # Example command to check for 404s in static assets via logs or automated browser tools could be added here if available
+
+  - name: Accessibility confirmation
+    run: |
+      npx lighthouse http://localhost:3000 --only-categories=accessibility --output=json --output-path=./lighthouse-accessibility-report.json
+
+  - name: Deliverables
+    run: |
+      npx playwright screenshot --full-page http://localhost:3000 homepage-final.png
+      echo "להפיק:
+      - Final annotated screenshot of homepage (homepage-final.png)
+      - Lighthouse audit report (lighthouse-accessibility-report.json)
+      - QA checklist (markdown or PDF)
+      "
+
+  - name: Verify visual elements
+    run: |
+      echo "בדיקה: 
+      - Starfield background animates correctly
+      - 3D globe renders, spins, and responds to mouse
+      - Headings, icons, and layout match design proportions
+      - Tailwind spacing and containers apply correctly
+      "
+      echo "Note: Visual and interactive checks require manual confirmation or visual testing tools."
+
+  - name: Test internationalization
+    run: |
+      echo "בדיקה:
+      - Translations appear in EN, HE, AR
+      - Language switcher functions correctly
+      - RTL layout is applied in HE/AR (dir='rtl')
+      "
+      echo "Note: Manual or automated UI tests required for verifying translations and RTL layout."
+
+  - name: Test responsiveness
+    run: |
+      echo "בדיקה:
+      - No horizontal scrolling
+      - Globe and icons resize per screen size
+      - Typography scales and remains readable
+      "
+      echo "Note: Manual or responsive design testing tools recommended."
+
+  - name: Confirm success
+    run: |
+      echo "וידוא סופי: 
+      Visual confirmation of all sections working
+      QA log or checklist with ✓ marks
+      All issues resolved or marked 'Won’t fix'
+      "

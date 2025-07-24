@@ -16,9 +16,9 @@ export function WhatsAppCommunitySection() {
   ];
 
   return (
-    <section className="w-full max-w-4xl mx-auto py-12 px-4" dir="auto">
+    <section className="w-full max-w-4xl mx-auto py-16 px-4 gap-y-12" dir="auto">
       <h2 className="text-3xl font-bold text-center mb-2">{t('whatsapp_community.title')}</h2>
-      <p className="text-lg text-gray-600 text-center mb-8">{t('whatsapp_community.description')}</p>
+      <p className="text-lg text-blue-200 text-center mb-8">{t('whatsapp_community.description')}</p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
         {communities.map((community, idx) => (
           <div key={idx} className="flex flex-col items-center bg-white rounded-lg shadow p-6">

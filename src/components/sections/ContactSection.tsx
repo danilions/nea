@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Button } from '../ui/Button';
 import { Input, Label } from '../ui/Input';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../ui/Card';
 
@@ -95,9 +94,9 @@ export const ContactSection: React.FC = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
                 <div className="grid gap-4 sm:grid-cols-2">
-                  <div className="space-y-2">
+                  <div className="flex flex-col space-y-2">
                     <Label htmlFor="name">Name *</Label>
                     <Input
                       id="name"
@@ -107,7 +106,7 @@ export const ContactSection: React.FC = () => {
                       required
                     />
                   </div>
-                  <div className="space-y-2">
+                  <div className="flex flex-col space-y-2">
                     <Label htmlFor="email">Email *</Label>
                     <Input
                       id="email"
@@ -120,7 +119,7 @@ export const ContactSection: React.FC = () => {
                   </div>
                 </div>
                 
-                <div className="space-y-2">
+                <div className="flex flex-col space-y-2">
                   <Label htmlFor="organization">Organization</Label>
                   <Input
                     id="organization"
@@ -130,22 +129,25 @@ export const ContactSection: React.FC = () => {
                   />
                 </div>
                 
-                <div className="space-y-2">
+                <div className="flex flex-col space-y-2">
                   <Label htmlFor="message">Message *</Label>
                   <textarea
                     id="message"
                     name="message"
                     rows={4}
-                    className="flex w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm placeholder:text-neutral-500 focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="w-full rounded-lg border border-neutral-300 bg-white px-3 py-2 text-sm placeholder:text-neutral-500 focus:border-primary-500 focus:outline-none focus:ring-2 focus:ring-primary-500 disabled:cursor-not-allowed disabled:opacity-50"
                     value={formData.message}
                     onChange={handleChange}
                     required
                   />
                 </div>
                 
-                <Button type="submit" className="w-full">
+                <button
+                  type="submit"
+                  className="w-full bg-white text-black px-6 py-2 rounded hover:bg-gray-100 font-semibold transition-colors duration-200"
+                >
                   Send Message
-                </Button>
+                </button>
               </form>
             </CardContent>
           </Card>

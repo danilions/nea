@@ -1,0 +1,39 @@
+task: ssr_hydration_check
+description: >
+  Verify that Server-Side Rendering (SSR) and client-side hydration are working correctly for all homepage components.
+  Identify and fix mismatches caused by browser-only code, i18n misalignment, or incompatible libraries like Three.js.
+
+steps:
+  - name: Check server logs and initial HTML
+    run: |
+      pnpm run build && pnpm start
+      curl -I http://localhost:3000
+    verify: |
+      - Response includes pre-rendered HTML
+      - Language keys are resolved server-side
+      - No raw keys or fallback content in HTML
+
+  - name: Audit hydration warnings
+    run: |
+      pnpm run dev
+      # Open browser console and look for React hydration warnings
+    check: |
+      - No "Text content did not match" errors
+      - No console errors from Three.js or window access
+
+  - name: Fix SSR-incompatible code
+    fix: |
+      - Wrap any browser-specific logic in `useEffect`
+      - Use `dynamic(import(...), { ssr: false })` for globe/star components
+      - Avoid referencing window/document during render
+
+  - name: Verify i18n hydration consistency
+    check: |
+      - Language used in server render matches what client picks up
+      - react-i18next initialized with correct language on both sides
+
+  - name: Confirm hydration success
+    return: |
+      No console hydration errors
+      SSR HTML includes fully rendered content
+      All dynamic elements behave identically pre/post-hydration

@@ -1,0 +1,85 @@
+{
+  "common": {
+    "logoAlt": "לוגו אריות ציון",
+    "retry": "נסה שוב"
+  },
+  "globe": {
+    "mainTitle": "נתיבי גלקסיה",
+    "loadingData": "טוען נתונים...",
+    "loadingTextures": "טוען טקסטורות...",
+  "hero.title": "אבטחה גלקטית",
+  "hero.subtitle": "ניטור איומים בזמן אמת לעולם בטוח יותר.",
+  "hero.slogan": "אמת. אמון. טכנולוגיה.",
+  "features.realTimeMonitoring": "ניטור בזמן אמת",
+  "features.realTimeMonitoringDesc": "מעקב אחר איומים גלובליים בזמן התרחשותם.",
+  "features.truthVerification": "אימות אמת",
+  "features.truthVerificationDesc": "בדיקת עובדות מבוססת בינה מלאכותית.",
+  "features.globalNetwork": "רשת גלובלית",
+  "features.globalNetworkDesc": "חיבור עם שותפים אמינים ברחבי העולם.",
+  "features.threatDetection": "זיהוי איומים",
+  "features.threatDetectionDesc": "אנליטיקה מתקדמת להתרעה מוקדמת."
+    "dataLoadError": "שגיאה בטעינת נתונים: {{message}}",
+    "searchPlaceholder": "חפש שדה תעופה (IATA, עיר, מדינה)...",
+    "searchAriaLabel": "הזן שאילתת חיפוש",
+    "airportDetailsTitle": "פרטי שדה תעופה: {{iata}}",
+    "dataError": "אירעה שגיאה: {{error}}"
+  },
+  "airport": {
+    "city": "עיר",
+    "country": "מדינה",
+    "iataCode": "קוד IATA",
+    "icaoCode": "קוד ICAO",
+    "coordinates": "קואורדינטות",
+    "timezone": "אזור זמן",
+    "relatedRoutes": "מסלולים קשורים",
+    "noRelatedRoutes": "אין מסלולים קשורים בנתונים הנוכחיים",
+    "markerLabel": "שדה תעופה: {{city}}, {{country}}"
+  },
+  "route": {
+    "flight": "טיסה",
+    "duration": "משך",
+    "distance": "מרחק",
+    "status": "סטטוס",
+    "status.scheduled": "מתוכננת",
+    "status.ontime": "בזמן",
+    "status.departed": "המראה",
+    "status.arrived": "נחתה",
+    "status.delayed": "עוכבה",
+    "status.cancelled": "בוטלה"
+  },
+  "welcome": "ברוך הבא לאתר אריות ציון",
+  "about": "אודות",
+  "contact": "צור קשר",
+  "start": "התחלה",
+  "upgrade": "שדרוג",
+  "today": "היום",
+  "project_started": "הפרויקט התחיל.",
+  "major_upgrade": "בוצע שדרוג משמעותי.",
+  "running_nextjs": "המערכת פועלת על Next.js.",
+  "first_live_update": "עדכון חי ראשון!",
+  "another_example_update": "עוד עדכון לדוגמה.",
+  "document_1": "מסמך 1",
+  "document_2": "מסמך 2",
+  "document_description": "תיאור מסמך.",
+  "another_document": "מסמך נוסף.",
+  "character_1": "דמות 1",
+  "character_2": "דמות 2",
+  "organization": "ארגון",
+  "profile": "פרופיל",
+  "system_loaded": "המערכת נטענה בהצלחה",
+  "header": {
+    "title": "אריות ציון",
+    "ariaLabel": "כותרת האתר"
+  },
+  "metadata": {
+    "title": "אריות ציון - נתיבי גלקסיה: חקור מסלולי טיסה גלובליים",
+    "description": "חקור מסלולי טיסה גלובליים תלת-ממדיים ונתוני שדות תעופה בפלטפורמת נתיבי הגלקסיה של אריות ציון. גלה חיבורים, חברות תעופה ומצבי טיסה בזמן אמת.",
+    "keywords": "אריות ציון, תעופה, גלובוס, טיסות, מסלולים, תלת-ממד, אינטראקטיבי, שדות תעופה, גלובלי, נסיעות, זמן אמת, נגישות, מפה"
+  },
+  "graph": {
+    "nodeClicked": "נלחץ צומת: {{node}}",
+    "nodeDoubleClicked": "בוצע לחיצה כפולה על צומת: {{node}}"
+  },
+  "home.title": "ברוך הבא",
+  "home.description": "זוהי דף הבית"
+}

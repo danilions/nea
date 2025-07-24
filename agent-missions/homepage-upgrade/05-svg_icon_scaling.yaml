@@ -1,0 +1,40 @@
+task: svg_icon_scaling
+description: >
+  Fix the oversized and misaligned SVG icons on the homepage.
+  Ensure all icons are styled with consistent Tailwind sizing classes and respect their viewBox settings to integrate cleanly into the layout.
+
+steps:
+  - name: Identify affected icons
+    files:
+      - src/components/ui/
+      - public/assets/
+    verify: |
+      - Find all <svg> elements or imported SVGs used in HeroSection, FeatureSection, and other key blocks
+      - Confirm which icons are displaying oversized in the live site
+
+  - name: Normalize SVG usage
+    check: |
+      - All inline <svg> have correct viewBox attribute
+      - Dimensions are controlled via Tailwind (e.g., w-8 h-8 or w-12 h-12)
+      - No fixed pixel sizes overriding container flow
+
+  - name: Update icon wrappers
+    files:
+      - src/app/components/IconFeature.tsx (or equivalent)
+    fix: |
+      - Wrap each icon in a div with defined flex sizing
+      - Use Tailwind responsive sizing (e.g., w-10 h-10 sm:w-12 sm:h-12)
+      - Add aria-hidden or alt text if icons are decorative/informative
+
+  - name: Visual QA
+    run: |
+      pnpm run dev
+    verify: |
+      - All icons appear proportionally within their feature blocks
+      - Icons do not overflow or dominate layout
+      - Consistent spacing between icon and accompanying text
+
+  - name: Confirm success
+    return: |
+      Screenshot of feature section with correctly sized icons
+      Code snippet of one fixed icon block

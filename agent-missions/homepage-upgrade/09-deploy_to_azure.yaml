@@ -1,0 +1,47 @@
+task: deploy_to_azure
+description: >
+  Deploy the fully upgraded homepage to Azure Static Web Apps.
+  Ensure correct `staticwebapp.config.json` setup, working GitHub Actions workflow or Azure CLI path, and that the deployment includes all static/SSR assets.
+
+steps:
+  - name: Verify build output
+    run: |
+      pnpm run build
+      ls -la .next
+      du -sh .next/static/*
+    check: |
+      - Build completes with no errors
+      - .next/static contains JS/CSS chunks and page HTML
+
+  - name: Validate staticwebapp.config.json
+    files:
+      - staticwebapp.config.json
+    verify: |
+      - Correct navigationFallback if using SPA behavior
+      - No rewrite rules blocking _next/static
+      - Headers for cache-control defined for static assets
+
+  - name: Deploy via Azure CLI
+    run: |
+      az login
+      az staticwebapp upload --name lions-of-zion \
+        --resource-group rg-lions-of-zion-prod \
+        --source . \
+        --output-location .next
+    verify: |
+      - Deploy completes with no errors
+      - Live site responds at https://lionsofzion-official.org
+      - All assets load successfully (status 200)
+
+  - name: Post-deploy test
+    run: |
+      open https://lionsofzion-official.org
+    test: |
+      - Homepage renders with full styles, globe, starfield, and translated text
+      - Responsive and accessible behavior verified
+
+  - name: Confirm success
+    return: |
+      Screenshot of live site
+      az CLI output confirming success
+      Network log showing successful asset delivery

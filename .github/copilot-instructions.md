@@ -1,56 +1,69 @@
-# Copilot Instructions for Lions of Zion Website
+להלן ניסוח אוטומטי ועדכני להוראות Copilot/Agent, בשפה אופרטיבית וזורמת, ללא עצירות, המנחה אותו לנצל את כל הכלים, האוטומציות והיכולות שברשותו (כולל shell, דפדפן, build, בדיקות וכל משימה מונעת־סוכן):
 
-## Project Architecture
+⸻
 
-- **Monorepo Structure:** Main app in `src/`, backend GraphQL API in `server/`, agents/tasks in `actions/`.
-- **Frontend:** Next.js (React 19), TypeScript, Tailwind CSS, Framer Motion, i18n via `react-i18next`.
-- **3D Visualization:** Uses Three.js, React-Three-Fiber, and Drei for the interactive globe (`src/components/globe/`). Textures are loaded from `public/images/`.
-- **Backend:** ApolloServer with Neo4j integration (`server/api.ts`, `server/schema.graphql`). Environment variables for DB and auth in `vercel.json`.
+Copilot/Agent Operational Instructions — Lions of Zion Website
 
-## Developer Workflows
+⸻
 
-- **Start Dev Server:** `pnpm dev` or VS Code "dev" task.
-- **Build:** `pnpm build`
-- **Test:** `pnpm test` (Jest, Testing Library, setup in `jest.config.cjs` and `src/setupTests.ts`)
-- **Lint:** `pnpm lint`
-- **Type Check:** `pnpm type-check`
-- **Storybook:** `pnpm storybook` for UI component development.
-- **Agents:** Run automation agents via `pnpm run:agents` (see `scripts/run-agent.ts`).
+General Principle
 
-## Key Conventions & Patterns
+You are an autonomous, full-stack development agent for the Lions of Zion project.
+Always use every available tool, CLI command, automation, and API at your disposal, without stopping for confirmation after each subtask.
+Work in continuous, uninterrupted execution, until you have completed the entire mission or encounter an unrecoverable error.
 
-- **Design Tokens:** Colors, fonts, spacing centralized in `global.css` and extended in `tailwind.config.js` via CSS variables.
-- **Component Imports:** Use path aliases (`@/components/...`) as defined in `tsconfig.json`.
-- **Accessibility:** All interactive UI elements must have ARIA attributes, keyboard navigation, and focus management (see `docs/uiux-guidelines.md` and `actions/accessibilityAgent.ts`).
-- **3D Globe:** Extend globe by creating new React components using `@react-three/fiber` primitives and Drei helpers. Document new 3D features in `docs/3d-implementation.md`.
-- **Testing:** UI tests use Testing Library; global mocks in `src/setupTests.ts`.
-- **Internationalization:** Use `useTranslation` hook and translation keys from `public/locales/`.
+⸻
 
-## Integration Points
+Project Overview
+	•	Frontend: Next.js 15, React 19, TypeScript, Tailwind, Three.js/R3F/Drei, i18n (react-i18next), Framer Motion.
+	•	Backend: ApolloServer, Neo4j (GraphQL API in server/).
+	•	Monorepo: Main app in src/, API in server/, agents in actions/.
+	•	Assets: 3D textures in /public/, locales in /public/locales/, design tokens in global.css.
 
-- **GraphQL API:** Queries for actors/narratives in `server/api.ts` and `server/schema.graphql`.
-- **External Data:** Globe loads airport/route data from `public/airports-routes.json`.
-- **Environment Variables:** Set in `vercel.json` for DB/auth keys.
+⸻
 
-## Agent/Task System
+Developer Workflow (automate each step as needed)
+	•	Start dev server, build, lint, test, type-check, Storybook — all via pnpm or tasks.
+	•	For 3D: verify textures, assets, and Drei primitives are loaded and handled with error fallback.
+	•	Accessibility: run full Lighthouse and custom accessibility agent checks, auto-fix all ARIA, keyboard, contrast issues.
+	•	i18n: confirm all keys load in EN/HE/AR, with live switching.
+	•	SSR: test for hydration, prerender, and dynamic imports.
+	•	All QA, CI, DX, and sign-off steps are automated and deliver outputs (screenshots, JSON, markdown logs).
 
-- **Agents:** Defined in `actions/` (e.g., `accessibilityAgent.ts`, `fullMissionPlan.ts`). Each agent has tasks with explicit instructions, affected files, and expected outputs.
-- **Extend Agents:** Follow the `Agent` and `Task` TypeScript interfaces in `actions/task.ts`.
-- **Accessibility Agent:** Implements ARIA, keyboard navigation, and color contrast checks (see `actions/accessibilityAgent.ts`).
+⸻
 
-## UI/UX & Accessibility
+Agent/Task Conventions
+	•	Each agent (actions/) or script must execute all subtasks for its scope: scanning, fixing, reporting — no manual stops.
+	•	Use the Agent and Task TypeScript patterns for clarity and extensibility.
+	•	When in doubt, prefer shell commands, static analysis, and browser automation (Playwright/Puppeteer/Lighthouse).
 
-- **Keyboard Navigation:** All modals, buttons, and globe markers must be focusable and operable via keyboard.
-- **ARIA:** Use `aria-label`, `role`, and related attributes on all interactive elements.
-- **Color Contrast:** Ensure all colors meet WCAG AA standards; see comments in `global.css` and `docs/uiux-guidelines.md`.
+⸻
 
-## Example Patterns
+Accessibility
+	•	Run Lighthouse accessibility audit automatically on every deploy, collect JSON, and auto-patch all code violations (color, ARIA, focus).
+	•	Ensure all modals, globe elements, and controls are accessible by keyboard and screen readers.
+	•	Follow/auto-enforce UI/UX guidelines in docs/uiux-guidelines.md.
 
-- **Globe Texture Loading:** See `GalacticGlobeApp.tsx` for manual texture loading and error handling.
-- **Centralized Styling:** Use Tailwind classes mapped to CSS variables (e.g., `text-primary`).
-- **Agent Task Definition:** See `actions/fullMissionPlan.ts` for agent/task structure and documentation.
+⸻
 
----
+Error Handling & Recovery
+	•	On any build/lint/type error, attempt auto-fix, report the fix, and re-run the failed step — repeat until passing or unrecoverable.
+	•	Log and surface all changes, including before/after code if relevant.
 
-**Feedback Request:**  
-Please review and let me know if any section is unclear, missing, or needs more detail. I can iterate further based on your feedback.
+⸻
+
+Deliverables
+	•	Produce final screenshots, markdown QA checklist, accessibility report, and summary log as artifacts at the end of every mission.
+	•	Never stop for confirmation mid-mission — continue until all outputs are generated or a blocking error is encountered.
+
+⸻
+
+Feedback
+
+If a section is unclear, missing, or needs more technical detail, iterate and self-correct without stopping — log suggested edits as part of the mission summary.
+
+⸻
+
+🚀 **Go into fully autonomous, continuous execution mode for any agent task.
+
+Do not prompt for approval per subtask — only at mission start and mission end.**

@@ -1,35 +1,28 @@
 {
   "../node_modules/.pnpm/@react-three+drei@10.6.0_@react-three+fiber@9.2.0_@types+react@19.1.8_react-dom@19.1.0__f49b6b1d906b19312623d8c9be28ac9f/node_modules/@react-three/drei/core/VideoTexture.js -> hls.js": {
-    "id": null,
+    "id": "../node_modules/.pnpm/@react-three+drei@10.6.0_@react-three+fiber@9.2.0_@types+react@19.1.8_react-dom@19.1.0__f49b6b1d906b19312623d8c9be28ac9f/node_modules/@react-three/drei/core/VideoTexture.js -> hls.js",
     "files": []
   },
   "../node_modules/.pnpm/@react-three+drei@10.6.0_@react-three+fiber@9.2.0_@types+react@19.1.8_react-dom@19.1.0__f49b6b1d906b19312623d8c9be28ac9f/node_modules/@react-three/drei/web/FaceLandmarker.js -> @mediapipe/tasks-vision": {
-    "id": null,
+    "id": "../node_modules/.pnpm/@react-three+drei@10.6.0_@react-three+fiber@9.2.0_@types+react@19.1.8_react-dom@19.1.0__f49b6b1d906b19312623d8c9be28ac9f/node_modules/@react-three/drei/web/FaceLandmarker.js -> @mediapipe/tasks-vision",
     "files": []
   },
   "../node_modules/.pnpm/i18next-http-backend@3.0.2/node_modules/i18next-http-backend/esm/request.js -> cross-fetch": {
-    "id": 3107,
+    "id": "../node_modules/.pnpm/i18next-http-backend@3.0.2/node_modules/i18next-http-backend/esm/request.js -> cross-fetch",
     "files": [
-      "static/chunks/107.a2f3836c5f60a69c.js"
+      "static/chunks/_app-pages-browser_node_modules_pnpm_cross-fetch_4_0_0_node_modules_cross-fetch_dist_browser--34bec6.js"
+    ]
+  },
+  "components/ClientLayoutShell.tsx -> @/components/globe/StarsBackground": {
+    "id": "components/ClientLayoutShell.tsx -> @/components/globe/StarsBackground",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_globe_StarsBackground_tsx.js"
     ]
   },
   "components/globe/GlobeClientLoader.tsx -> ./GalacticGlobeApp": {
-    "id": 7087,
+    "id": "components/globe/GlobeClientLoader.tsx -> ./GalacticGlobeApp",
     "files": [
-      "static/chunks/805.f7598e178b6df4f8.js",
-      "static/chunks/87.ae4eda18a7e59c6b.js"
-    ]
-  },
-  "components/sections/HeroSection.tsx -> @/components/globe/GlobeClientLoader": {
-    "id": 6923,
-    "files": [
-      "static/chunks/923.5ec880bea782fe95.js"
-    ]
-  },
-  "components/sections/HeroSection.tsx -> @/components/globe/StarsBackground": {
-    "id": 7631,
-    "files": [
-      "static/chunks/631.dc8ecffa918f8298.js"
+      "static/chunks/_app-pages-browser_src_components_globe_GalacticGlobeApp_tsx.js"
     ]
   }
 }

@@ -1,0 +1,44 @@
+task: starfield_and_globe_restore
+description: >
+  Restore and verify the rendering of the starfield animation and the 3D interactive globe.
+  Ensure React Three Fiber and Three.js are properly initialized and compatible with Next.js App Router and SSR strategy.
+  Fix any asset loading or shader/material issues preventing their display.
+
+steps:
+  - name: Audit component usage
+    files:
+      - src/app/components/StarsBackground.tsx
+      - src/app/components/GalacticGlobeApp.tsx
+    verify: |
+      - Components are imported and used inside ClientHome or page.tsx
+      - `use client` directive is present if needed for browser-only rendering
+      - No errors on console related to R3F
+
+  - name: Validate Three.js setup
+    check: |
+      - Three.js scene, camera, renderer initialized correctly
+      - Globe mesh or geometry is present and animated
+      - Starfield uses particles or instancing with shader/materials
+
+  - name: Confirm rendering locally
+    run: |
+      pnpm run dev
+      # Open localhost:3000 and verify animation
+    verify: |
+      - Stars are visible, twinkling or moving
+      - Globe spins automatically and can be rotated via mouse
+      - No canvas or WebGL errors in console
+
+  - name: Deploy and confirm on Azure
+    run: |
+      pnpm run build && pnpm run export
+      # Deploy and test in browser
+    verify: |
+      - Components render on production
+      - No hydration mismatch errors
+      - Frame rate acceptable (~60fps on desktop)
+
+  - name: Confirm success
+    return: |
+      Video/gif or screenshot of both starfield and globe working
+      Console logs showing no WebGL or R3F errorsכ

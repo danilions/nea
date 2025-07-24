@@ -1,0 +1,97 @@
+Scanning env usage...
+./node_modules/.pnpm/@bcoe+v8-coverage@0.2.3/node_modules/@bcoe/v8-coverage/src/test/merge.spec.ts:      if (process.env.CI === "true") {
+./node_modules/.pnpm/@react-aria+interactions@3.25.4_react-dom@19.1.0_react@19.1.0__react@19.1.0/node_modules/@react-aria/interactions/src/createEventHandler.ts:        if (shouldStopPropagation && process.env.NODE_ENV !== 'production') {
+./node_modules/.pnpm/@react-aria+interactions@3.25.4_react-dom@19.1.0_react@19.1.0__react@19.1.0/node_modules/@react-aria/interactions/src/Pressable.tsx:    if (process.env.NODE_ENV === 'production') {
+./node_modules/.pnpm/@react-aria+interactions@3.25.4_react-dom@19.1.0_react@19.1.0__react@19.1.0/node_modules/@react-aria/interactions/src/PressResponder.tsx:      if (process.env.NODE_ENV !== 'production') {
+./node_modules/.pnpm/@react-aria+interactions@3.25.4_react-dom@19.1.0_react@19.1.0__react@19.1.0/node_modules/@react-aria/interactions/src/useFocusable.tsx:    if (process.env.NODE_ENV === 'production') {
+./node_modules/.pnpm/@react-aria+interactions@3.25.4_react-dom@19.1.0_react@19.1.0__react@19.1.0/node_modules/@react-aria/interactions/src/useFocusVisible.ts:  } else if (process.env.NODE_ENV === 'test') {
+./node_modules/.pnpm/@react-aria+interactions@3.25.4_react-dom@19.1.0_react@19.1.0__react@19.1.0/node_modules/@react-aria/interactions/src/useHover.ts:    } else if (process.env.NODE_ENV === 'test') {
+./node_modules/.pnpm/@react-aria+interactions@3.25.4_react-dom@19.1.0_react@19.1.0__react@19.1.0/node_modules/@react-aria/interactions/src/useInteractOutside.ts:    } else if (process.env.NODE_ENV === 'test') {
+./node_modules/.pnpm/@react-aria+interactions@3.25.4_react-dom@19.1.0_react@19.1.0__react@19.1.0/node_modules/@react-aria/interactions/src/useMove.ts:    if (typeof PointerEvent === 'undefined' && process.env.NODE_ENV === 'test') {
+./node_modules/.pnpm/@react-aria+interactions@3.25.4_react-dom@19.1.0_react@19.1.0__react@19.1.0/node_modules/@react-aria/interactions/src/usePress.ts:    } else if (process.env.NODE_ENV === 'test') {
+./node_modules/.pnpm/@react-aria+interactions@3.25.4_react-dom@19.1.0_react@19.1.0__react@19.1.0/node_modules/@react-aria/interactions/src/usePress.ts:    if (!domRef || process.env.NODE_ENV === 'test') {
+./node_modules/.pnpm/@react-aria+ssr@3.9.10_react@19.1.0/node_modules/@react-aria/ssr/src/SSRProvider.tsx:    if (process.env.NODE_ENV !== 'test' && process.env.NODE_ENV !== 'production' && !warnedAboutSSRProvider) {
+./node_modules/.pnpm/@react-aria+ssr@3.9.10_react@19.1.0/node_modules/@react-aria/ssr/src/SSRProvider.tsx:  if (ctx === defaultContext && !canUseDOM && process.env.NODE_ENV !== 'production') {
+./node_modules/.pnpm/@react-aria+ssr@3.9.10_react@19.1.0/node_modules/@react-aria/ssr/src/SSRProvider.tsx:  let prefix = ctx === defaultContext && process.env.NODE_ENV === 'test' ? 'react-aria' : `react-aria${ctx.prefix}`;
+./node_modules/.pnpm/@react-aria+ssr@3.9.10_react@19.1.0/node_modules/@react-aria/ssr/src/SSRProvider.tsx:  let prefix = didSSR || process.env.NODE_ENV === 'test' ? 'react-aria' : `react-aria${defaultContext.prefix}`;
+./node_modules/.pnpm/@react-aria+utils@3.30.0_react-dom@19.1.0_react@19.1.0__react@19.1.0/node_modules/@react-aria/utils/src/openLink.tsx:  let event = isWebKit() && isMac() && !isIPad() && process.env.NODE_ENV !== 'test'
+./node_modules/.pnpm/@react-aria+utils@3.30.0_react-dom@19.1.0_react@19.1.0__react@19.1.0/node_modules/@react-aria/utils/src/platform.ts:  if (process.env.NODE_ENV === 'test') {
+./node_modules/.pnpm/@react-stately+utils@3.10.8_react@19.1.0/node_modules/@react-stately/utils/src/useControlledState.ts:      if (process.env.NODE_ENV !== 'production') {
+./node_modules/.pnpm/@react-stately+utils@3.10.8_react@19.1.0/node_modules/@react-stately/utils/src/useControlledState.ts:    if (wasControlled !== isControlled && process.env.NODE_ENV !== 'production') {
+./node_modules/.pnpm/@swc+core@1.13.2_@swc+helpers@0.5.17/node_modules/@swc/core/spack.d.ts:     * @default process.env.NODE_ENV
+./node_modules/.pnpm/@swc+types@0.1.23/node_modules/@swc/types/index.d.ts:     * Defaults to `process.env.SWC_ENV || process.env.NODE_ENV || "development"`
+./node_modules/.pnpm/@tanstack+virtual-core@3.13.12/node_modules/@tanstack/virtual-core/src/index.ts:        if (process.env.NODE_ENV !== 'production' && this.options.debug) {
+./node_modules/.pnpm/@tanstack+virtual-core@3.13.12/node_modules/@tanstack/virtual-core/src/index.ts:      key: process.env.NODE_ENV !== 'production' && 'calculateRange',
+./node_modules/.pnpm/@tanstack+virtual-core@3.13.12/node_modules/@tanstack/virtual-core/src/index.ts:      key: process.env.NODE_ENV !== 'production' && 'getMeasurements',
+./node_modules/.pnpm/@tanstack+virtual-core@3.13.12/node_modules/@tanstack/virtual-core/src/index.ts:      key: process.env.NODE_ENV !== 'production' && 'getVirtualIndexes',
+./node_modules/.pnpm/@tanstack+virtual-core@3.13.12/node_modules/@tanstack/virtual-core/src/index.ts:      key: process.env.NODE_ENV !== 'production' && 'getVirtualItems',
+./node_modules/.pnpm/@tanstack+virtual-core@3.13.12/node_modules/@tanstack/virtual-core/src/index.ts:      key: process.env.NODE_ENV !== 'production' && 'maybeNotify',
+./node_modules/.pnpm/@types+babel__core@7.20.5/node_modules/@types/babel__core/index.d.ts:     * api.cache.invalidate(() => process.env.NODE_ENV)
+./node_modules/.pnpm/@types+babel__core@7.20.5/node_modules/@types/babel__core/index.d.ts:     * api.cache.using(() => process.env.NODE_ENV)
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/child_process.d.ts:     *   env: process.env,
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/child_process.d.ts:     * process, the default is `process.env`.
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/child_process.d.ts: * variable if `env` is in the `options` object. Otherwise, `process.env.PATH` is
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/cluster.d.ts:         * @param env Key/value pairs to add to worker process environment.
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/cluster.d.ts:         * True if the process is a primary. This is determined by the `process.env.NODE_UNIQUE_ID`. If `process.env.NODE_UNIQUE_ID`
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/http.d.ts:         * > new URL(`http://${process.env.HOST ?? 'localhost'}${request.url}`);
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/http.d.ts:         * Ensure that you set `process.env.HOST` to the server's host name, or consider replacing this part entirely. If using `req.headers.host`, ensure proper
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/http.d.ts:         * new URL(`http://${process.env.HOST ?? 'localhost'}${request.url}`);
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/http.d.ts:         * When `request.url` is `'/status?name=ryan'` and `process.env.HOST` is undefined:
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/module.d.ts:         * `process.env.NODE_COMPILE_CACHE` value to compile cache directory so the behavior can
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/process.d.ts:                 * **Default:** `process.env`.
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/process.d.ts:                 * are visible to the operating system or to native add-ons. On Windows, a copy of `process.env` on a `Worker` instance operates in a case-sensitive manner
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/process.d.ts:                 * Assigning a property on `process.env` will implicitly convert the value
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/process.d.ts:                 * each `Worker` thread has its own copy of `process.env`, based on its
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/process.d.ts:                 * Loads the environment configuration from a `.env` file into `process.env`. If
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/process.d.ts:                 * node -e 'process.env.foo = "bar"' &#x26;&#x26; echo $foo
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/process.d.ts:                 * parent thread's `process.env`, or whatever was specified as the `env` option
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/process.d.ts:                 * The `process.env` property returns an object containing the user environment.
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/process.d.ts:                 * to the `Worker` constructor. Changes to `process.env` will not be visible
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/process.d.ts:                 * Use `delete` to delete a property from `process.env`.
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/tty.d.ts:         * @param [env=process.env] An object containing the environment variables to check. This enables simulating the usage of a specific terminal.
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/v8.d.ts:     *   // process.env and process.argv are refreshed during snapshot
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/v8.d.ts:     *   const lang = process.env.BOOK_LANG || 'en_US';
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/v8.d.ts:     * The resulted binary will get print the data deserialized from the snapshot during start up, using the refreshed `process.env` and `process.argv` of the launched process:
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/wasi.d.ts:         * An object similar to `process.env` that the WebAssembly
+./node_modules/.pnpm/@types+node@24.1.0/node_modules/@types/node/worker_threads.d.ts:     * * `process.env` is a copy of the parent thread's environment variables,
+./node_modules/.pnpm/@types+yargs-parser@21.0.3/node_modules/@types/yargs-parser/index.d.ts:        /** Environment variables (`process.env`) with the prefix provided should be parsed. */
+./node_modules/.pnpm/@use-gesture+core@10.3.1/node_modules/@use-gesture/core/src/config/commonConfigResolver.ts:    if (process.env.NODE_ENV === 'development') {
+./node_modules/.pnpm/@use-gesture+core@10.3.1/node_modules/@use-gesture/core/src/config/commonConfigResolver.ts:if (process.env.NODE_ENV === 'development') {
+./node_modules/.pnpm/@use-gesture+core@10.3.1/node_modules/@use-gesture/core/src/config/dragConfigResolver.ts:if (process.env.NODE_ENV === 'development') {
+./node_modules/.pnpm/@use-gesture+core@10.3.1/node_modules/@use-gesture/core/src/config/resolver.ts:        if (process.env.NODE_ENV === 'development') {
+./node_modules/.pnpm/@use-gesture+core@10.3.1/node_modules/@use-gesture/core/src/config/resolver.ts:      } else if (process.env.NODE_ENV === 'development') {
+./node_modules/.pnpm/@use-gesture+core@10.3.1/node_modules/@use-gesture/core/src/engines/DragEngine.ts:      if (process.env.NODE_ENV === 'development') {
+./node_modules/.pnpm/@use-gesture+core@10.3.1/node_modules/@use-gesture/core/src/engines/DragEngine.ts:    if (process.env.NODE_ENV === 'development') {
+./node_modules/.pnpm/@use-gesture+core@10.3.1/node_modules/@use-gesture/core/src/engines/PinchEngine.ts:      if (process.env.NODE_ENV === 'development' && !event.defaultPrevented) {
+./node_modules/.pnpm/@use-gesture+core@10.3.1/node_modules/@use-gesture/core/src/parser.ts:    if (process.env.NODE_ENV === 'development') {
+./node_modules/.pnpm/apollo-server-core@3.13.0_graphql@16.11.0/node_modules/apollo-server-core/src/ApolloServer.ts:      const enabledViaEnvVar = process.env.APOLLO_SCHEMA_REPORTING === 'true';
+./node_modules/.pnpm/apollo-server-core@3.13.0_graphql@16.11.0/node_modules/apollo-server-core/src/ApolloServer.ts:      nodeEnv: config.nodeEnv ?? process.env.NODE_ENV,
+./node_modules/.pnpm/apollo-server-core@3.13.0_graphql@16.11.0/node_modules/apollo-server-core/src/determineApolloConfig.ts:  } = process.env;
+./node_modules/.pnpm/apollo-server-core@3.13.0_graphql@16.11.0/node_modules/apollo-server-core/src/plugin/schemaReporting/index.ts:          process.env.APOLLO_SERVER_ID || process.env.HOSTNAME || os.hostname(),
+./node_modules/.pnpm/apollo-server-core@3.13.0_graphql@16.11.0/node_modules/apollo-server-core/src/plugin/schemaReporting/index.ts:        platform: process.env.APOLLO_SERVER_PLATFORM || 'local',
+./node_modules/.pnpm/apollo-server-core@3.13.0_graphql@16.11.0/node_modules/apollo-server-core/src/plugin/schemaReporting/index.ts:        userVersion: process.env.APOLLO_SERVER_USER_VERSION,
+./node_modules/.pnpm/apollo-server-core@3.13.0_graphql@16.11.0/node_modules/apollo-server-core/src/runHttpQuery.ts:const NODE_ENV = process.env.NODE_ENV ?? '';
+./node_modules/.pnpm/eslint@9.31.0_jiti@2.5.0/node_modules/eslint/lib/types/rules.d.ts:	 * Please, use [`no-process-env`](https://github.com/eslint-community/eslint-plugin-n/tree/master/docs/rules/no-process-env.md) in [`eslint-plugin-n`](https://github.com/eslint-community/eslint-plugin-n).
+./node_modules/.pnpm/eslint@9.31.0_jiti@2.5.0/node_modules/eslint/lib/types/rules.d.ts:	 * Rule to disallow the use of `process.env`.
+./node_modules/.pnpm/eslint@9.31.0_jiti@2.5.0/node_modules/eslint/lib/types/rules.d.ts:	"no-process-env": Linter.RuleEntry<[]>;
+./node_modules/.pnpm/execa@5.1.1/node_modules/execa/index.d.ts:		Environment key-value pairs. Extends automatically from `process.env`. Set `extendEnv` to `false` if you don't want this.
+./node_modules/.pnpm/jackspeak@3.4.3/node_modules/jackspeak/dist/commonjs/index.d.ts:     * Environment object to read/write. Defaults `process.env`.
+./node_modules/.pnpm/jackspeak@3.4.3/node_modules/jackspeak/dist/esm/index.d.ts:     * Environment object to read/write. Defaults `process.env`.
+./node_modules/.pnpm/npm-run-path@4.0.1/node_modules/npm-run-path/index.d.ts:		Accepts an object of environment variables, like `process.env`, and modifies the PATH using the correct [PATH key](https://github.com/sindresorhus/path-key). Use this if you're modifying the PATH for use in the `child_process` options.
+./node_modules/.pnpm/npm-run-path@4.0.1/node_modules/npm-run-path/index.d.ts:	@returns The augmented [`process.env`](https://nodejs.org/api/process.html#process_process_env) object.
+./node_modules/.pnpm/npm-run-path@4.0.1/node_modules/npm-run-path/index.d.ts:	console.log(process.env.PATH);
+./node_modules/.pnpm/path-key@3.1.1/node_modules/path-key/index.d.ts:		Use a custom environment variables object. Default: [`process.env`](https://nodejs.org/api/process.html#process_process_env).
+./node_modules/.pnpm/path-key@3.1.1/node_modules/path-key/index.d.ts:	const PATH = process.env[key];
+./node_modules/.pnpm/postcss@8.4.31/node_modules/postcss/lib/css-syntax-error.d.ts:   *              and `process.env.NODE_DISABLE_COLORS`.
+./node_modules/.pnpm/postcss@8.5.6/node_modules/postcss/lib/css-syntax-error.d.ts:   *              and `process.env.NODE_DISABLE_COLORS`.
+./node_modules/.pnpm/tiny-invariant@1.3.3/node_modules/tiny-invariant/src/tiny-invariant.ts:const isProduction: boolean = process.env.NODE_ENV === 'production';
+./node_modules/.pnpm/tsconfig-paths@3.15.0/node_modules/tsconfig-paths/src/config-loader.ts:    getEnv: (key: string) => process.env[key],
+./node_modules/.pnpm/tsconfig-paths@4.2.0/node_modules/tsconfig-paths/src/config-loader.ts:    getEnv: (key: string) => process.env[key],
+./node_modules/.pnpm/webgl-constants@1.1.1/node_modules/webgl-constants/rollup.config.ts:  !isES && !process.env.ROLLUP_WATCH && filesizePlugin(),
+./node_modules/.pnpm/webgl-constants@1.1.1/node_modules/webgl-constants/rollup.config.ts:  !isES && !process.env.ROLLUP_WATCH && terserPlugin(),
+./node_modules/.pnpm/webpack-virtual-modules@0.6.2/node_modules/webpack-virtual-modules/src/index.ts:          if (process.env.DEBUG)
+./node_modules/.pnpm/webpack-virtual-modules@0.6.2/node_modules/webpack-virtual-modules/src/index.ts:    if (process.env.WVM_DEBUG)
+./server/api.ts:  neo4j.auth.basic(process.env.NEO4J_USER || 'neo4j', process.env.NEO4J_PASSWORD || 'test'),
+./server/api.ts:  process.env.NEO4J_URI || 'bolt://localhost:7687',
+./src/app/layout.tsx:        {process.env.NODE_ENV !== 'production' && (
+./src/utils/i18nMetadata.ts:    ? process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'

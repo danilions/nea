@@ -1,4 +1,5 @@
-import React, { useMemo, useRef, Suspense } from 'react';
+"use client";
+import React, { useMemo, Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import * as THREE from 'three';
 import { useFrame } from '@react-three/fiber';
@@ -10,7 +11,7 @@ function StarsPrimitive({
   opacity = 0.9,
   color = '#FFFFFF',
 }) {
-  const pointsRef = useRef<THREE.Points>(null);
+  // Removed unused pointsRef
   const positions = useMemo(() => {
     const arr = new Float32Array(numStars * 3);
     for (let i = 0; i < numStars; i++) {
@@ -36,17 +37,22 @@ function StarsPrimitive({
     return new THREE.PointsMaterial({ color, size: starSize, opacity });
   }, [color, starSize, opacity]);
 
-  const points = useMemo(() => {
-    return new THREE.Points(geometry, material);
-  }, [geometry, material]);
-
+  // Animate rotation using a ref to the group
+  const groupRef = React.useRef<THREE.Group>(null);
   useFrame(() => {
-    if (points) {
-      points.rotation.y += 0.0005;
+    if (groupRef.current) {
+      groupRef.current.rotation.y += 0.0005;
     }
   });
 
-  return <primitive ref={pointsRef} {...{ object: points }} />;
+  // Render points only if geometry and material are defined
+  return (
+    <group ref={groupRef}>
+      {geometry && material && (
+        <points geometry={geometry} material={material} />
+      )}
+    </group>
+  );
 }
 
 interface StarsBackgroundProps {
